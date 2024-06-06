@@ -1,6 +1,26 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## Some libraries you will need.
 
-# Getting Started
+1. node.js and npm, can install these through homebrew (package manager) or https://nodejs.org/en
+2. ensure these are working in the terminal with node -v and npm -v
+3. git, install by https://www.git-scm.com/downloads
+4. ensure this is working with git --version
+5. cocoapods, https://www.cocoapods.org/
+6. ensure by pod --version
+7. java 17, homebrew or website (if homebrew, i did it through homebrew so to make it work make sure to run the commands they give you for symlink and path)
+8. check with java --version
+9. xcode, android studio, these are simulators for the most part, can substitute with whatever works
+10. setup their respective simulators
+11. android: https://reactnative.dev/docs/0.70/environment-setup?guide=native&platform=android
+
+## VScode setup
+
+1. open new vscode window, files section should be empty
+2. click clone repository
+3. enter in the github repository link (go to the github and click code and clone, copy that git link)
+4. respository should be cloned.
+5. go to the root directory of the project, then npm install
+6. cd ios, then pod install
+7. cd android, then ./gradlew wrapper
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
@@ -54,26 +74,3 @@ Now that you have successfully run the app, let's modify it.
 2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
