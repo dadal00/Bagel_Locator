@@ -1,0 +1,2329 @@
+[
+    {
+        "title": "Alameda Natural Grocery",
+        "address": "1650 Park St",
+        "city": "Alameda",
+        "prov_state": "California",
+        "postal_zip": "94501",
+        "store_website": "https://alamedanaturalgrocery.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7677375,
+            "longitude": -122.2394426
+        }
+    },
+    {
+        "title": "SIGNAL Coffee Roasters",
+        "address": "2318 Central Ave A",
+        "city": "Alameda",
+        "prov_state": "California",
+        "postal_zip": "94501",
+        "store_website": "https://signalcoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.7643204,
+            "longitude": -122.2434211
+        }
+    },
+    {
+        "title": "Highwire Coffee Roasters",
+        "address": "1234 Park St",
+        "city": "Alameda",
+        "prov_state": "California",
+        "postal_zip": "94501",
+        "store_website": "https://www.highwirecoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.7616027,
+            "longitude": -122.2447726
+        }
+    },
+    {
+        "title": "Farmer Joe's",
+        "address": "3426 Fruitvale Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94602",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7994818,
+            "longitude": -122.2157204
+        }
+    },
+    {
+        "title": "Encinal Market",
+        "address": "3211 Encinal Ave",
+        "city": "Alameda",
+        "prov_state": "California",
+        "postal_zip": "94501",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7562241,
+            "longitude": -122.2337321
+        }
+    },
+    {
+        "title": "Estudillo Produce",
+        "address": "1305 MacArthur Blvd",
+        "city": "San Leandro",
+        "prov_state": "California",
+        "postal_zip": "94577",
+        "store_website": "https://estudilloproduce.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7293302,
+            "longitude": -122.1394861
+        }
+    },
+    {
+        "title": "Island Savoy Market",
+        "address": "1200 Lincoln Ave",
+        "city": "Alameda",
+        "prov_state": "California",
+        "postal_zip": "94501",
+        "store_website": "https://islandsavoymarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7745367,
+            "longitude": -122.2643588
+        }
+    },
+    {
+        "title": "Rocky's Market",
+        "address": "1440 Leimert Blvd",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94602",
+        "store_website": "https://rockysmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8118532,
+            "longitude": -122.2122828
+        }
+    },
+    {
+        "title": "SIGNAL Coffee Roasters",
+        "address": "1536 Webster St",
+        "city": "Alameda",
+        "prov_state": "California",
+        "postal_zip": "94501",
+        "store_website": "https://signalcoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.77462,
+            "longitude": -122.276543
+        }
+    },
+    {
+        "title": "Timeless Coffee",
+        "address": "1700 Webster St",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94612",
+        "store_website": "https://timelesscoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.80590100000001,
+            "longitude": -122.2670606
+        }
+    },
+    {
+        "title": "Cafe 817",
+        "address": "817 Washington St",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94607",
+        "store_website": "https://www.caffe817.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8011298,
+            "longitude": -122.2748912
+        }
+    },
+    {
+        "title": "Equator Coffees",
+        "address": "175 Bay Pl",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94610",
+        "store_website": "https://www.equatorcoffees.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8122119,
+            "longitude": -122.2611339
+        }
+    },
+    {
+        "title": "Highwire Coffee Roasters",
+        "address": "1111 Broadway",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94607",
+        "store_website": "https://www.highwirecoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.80280270000001,
+            "longitude": -122.272921
+        }
+    },
+    {
+        "title": "Kinfolx",
+        "address": "1951 Telegraph Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94612",
+        "store_website": null,
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8092983,
+            "longitude": -122.2699817
+        }
+    },
+    {
+        "title": "Piedmont Grocery",
+        "address": "4038 Piedmont Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94611",
+        "store_website": "https://piedmontgrocery.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8255174,
+            "longitude": -122.2527156
+        }
+    },
+    {
+        "title": "Timeless Coffee",
+        "address": "4252 Piedmont Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94611",
+        "store_website": "https://timelesscoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8282107,
+            "longitude": -122.2496741
+        }
+    },
+    {
+        "title": "Village Market",
+        "address": "5885 Broadway Terrace",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94618",
+        "store_website": "https://villagemkt.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8408192,
+            "longitude": -122.2364498
+        }
+    },
+    {
+        "title": "Cole Coffee Cafe",
+        "address": "6255 College Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94618",
+        "store_website": "https://www.colecoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8502346,
+            "longitude": -122.2525058
+        }
+    },
+    {
+        "title": "Market Hall Produce",
+        "address": "5655 College Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94618",
+        "store_website": "https://rockridgemarkethall.com/market-hall-produce",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8436858,
+            "longitude": -122.2518736
+        }
+    },
+    {
+        "title": "Boichik Bagels",
+        "address": "3170 College Ave",
+        "city": "Berkeley",
+        "prov_state": "CA",
+        "postal_zip": "94705",
+        "store_website": "https://boichikbagels.com/",
+        "uri": "boichik_shops",
+        "latlng": {
+            "latitude": 37.8514837,
+            "longitude": -122.2526898
+        }
+    },
+    {
+        "title": "Afikomen Judaica",
+        "address": "3042 Claremont Ave",
+        "city": "Oakland",
+        "prov_state": "California",
+        "postal_zip": "94705",
+        "store_website": "https://www.afikomen.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8549541,
+            "longitude": -122.2481682
+        }
+    },
+    {
+        "title": "Cafenated Coffee",
+        "address": "2960 College Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94705",
+        "store_website": null,
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8568035,
+            "longitude": -122.2532916
+        }
+    },
+    {
+        "title": "Polaris Cafe",
+        "address": "1515 Horton St",
+        "city": "Emeryville",
+        "prov_state": "California",
+        "postal_zip": "94608",
+        "store_website": "https://www.thepolariscafe.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8356145,
+            "longitude": -122.2898398
+        }
+    },
+    {
+        "title": "Derby Food Center",
+        "address": "2707 College Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94705",
+        "store_website": "https://derbyfoodcenter.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8618541,
+            "longitude": -122.2532695
+        }
+    },
+    {
+        "title": "Berkeley Bowl",
+        "address": "2020 Oregon Street",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94703",
+        "store_website": "https://www.berkeleybowl.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8568102,
+            "longitude": -122.2672381
+        }
+    },
+    {
+        "title": "Castro Valley Natural Grocery",
+        "address": "3295 Castro Valley Blvd",
+        "city": "Castro Valley",
+        "prov_state": "California",
+        "postal_zip": "94546",
+        "store_website": "https://castrovalleynaturalgrocery.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.6951472,
+            "longitude": -122.0786846
+        }
+    },
+    {
+        "title": "I. House",
+        "address": "2299 Piedmont Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94720",
+        "store_website": "https://ihouse.berkeley.edu/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8696559,
+            "longitude": -122.2514304
+        }
+    },
+    {
+        "title": "Berkeley Bowl West",
+        "address": "920 Heinz Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94710",
+        "store_website": "https://www.berkeleybowl.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8535336,
+            "longitude": -122.2903762
+        }
+    },
+    {
+        "title": "Berkeley Bowl West Cafe",
+        "address": "920-998 Heinz Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94710",
+        "store_website": "https://www.berkeleybowl.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8537039,
+            "longitude": -122.2900213
+        }
+    },
+    {
+        "title": "Alex Market",
+        "address": "2440 Sacramento St",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94702",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8624588,
+            "longitude": -122.2814081
+        }
+    },
+    {
+        "title": "Butcher's Son",
+        "address": "1954 University Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94704",
+        "store_website": "https://www.thebutchersveganson.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8715692,
+            "longitude": -122.271628
+        }
+    },
+    {
+        "title": "Victory Point Cafe",
+        "address": "1797 Shattuck Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94709",
+        "store_website": "https://www.victorypointcafe.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8751742,
+            "longitude": -122.2684613
+        }
+    },
+    {
+        "title": "Highwire Coffee Roasters",
+        "address": "2049 San Pablo Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94702",
+        "store_website": "https://www.highwirecoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8684367,
+            "longitude": -122.2915944
+        }
+    },
+    {
+        "title": "Oceanview Diner",
+        "address": "1807 Fourth St",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94710",
+        "store_website": "https://www.oceanviewonfourth.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8698487,
+            "longitude": -122.3004823
+        }
+    },
+    {
+        "title": "Monterey Market",
+        "address": "1550 Hopkins St",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94707",
+        "store_website": "https://www.montereymarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8812113,
+            "longitude": -122.2822384
+        }
+    },
+    {
+        "title": "Boichik Bagels",
+        "address": "1225 6th St",
+        "city": "Berkeley",
+        "prov_state": "CA",
+        "postal_zip": "94710",
+        "store_website": "https://boichikbagels.com/",
+        "uri": "boichik_shops",
+        "latlng": {
+            "latitude": 37.8804919,
+            "longitude": -122.3013209
+        }
+    },
+    {
+        "title": "Mainstay Markets",
+        "address": "655 22nd St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94107",
+        "store_website": "https://www.mainstaymarkets.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7578555,
+            "longitude": -122.3879129
+        }
+    },
+    {
+        "title": "SIGNAL Coffee Roasters",
+        "address": "1707 Solano Ave",
+        "city": "Berkeley",
+        "prov_state": "California",
+        "postal_zip": "94707",
+        "store_website": "https://signalcoffee.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8913733,
+            "longitude": -122.282391
+        }
+    },
+    {
+        "title": "Gus's Community Market",
+        "address": "1101 4th St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94158",
+        "store_website": "https://gussmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7743203,
+            "longitude": -122.3902062
+        }
+    },
+    {
+        "title": "Diablo Foods",
+        "address": "3615 Mount Diablo Blvd",
+        "city": "Lafayette",
+        "prov_state": "California",
+        "postal_zip": "94549",
+        "store_website": "https://www.diablofoods.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8906715,
+            "longitude": -122.1245686
+        }
+    },
+    {
+        "title": "Woodlands Market",
+        "address": "203 Folsom St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94105",
+        "store_website": "https://www.woodlandsmarket.com/san-francisco/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7885166,
+            "longitude": -122.3922361
+        }
+    },
+    {
+        "title": "Kitchenette",
+        "address": "625 San Pablo Ave",
+        "city": "Albany",
+        "prov_state": "California",
+        "postal_zip": "94706",
+        "store_website": "https://www.kitchenette625.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8942392,
+            "longitude": -122.2999726
+        }
+    },
+    {
+        "title": "Young's Market",
+        "address": "285 Arlington Ave",
+        "city": "Kensington",
+        "prov_state": "California",
+        "postal_zip": "94708",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.904086,
+            "longitude": -122.278035
+        }
+    },
+    {
+        "title": "Four Star Seafood and Provisions",
+        "address": "1315 Edgebert Ave",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94124",
+        "store_website": "https://www.fourstarseafood.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.72166259999999,
+            "longitude": -122.3913935
+        }
+    },
+    {
+        "title": "Gus's Community Market",
+        "address": "2111 Harrison St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": "https://gussmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7639786,
+            "longitude": -122.4126587
+        }
+    },
+    {
+        "title": "Andi's Market",
+        "address": "820 Cortland Ave",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": "http://www.andismarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7387394,
+            "longitude": -122.4142074
+        }
+    },
+    {
+        "title": "Luke's Local",
+        "address": "580 Green St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94133",
+        "store_website": "https://lukeslocal.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7996675,
+            "longitude": -122.408811
+        }
+    },
+    {
+        "title": "Cafe Angolo",
+        "address": "501 Columbus Ave",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94133",
+        "store_website": null,
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.7995816,
+            "longitude": -122.4093867
+        }
+    },
+    {
+        "title": "The Good Life Grocery",
+        "address": "448 Cortland Ave",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": "https://www.goodlifegrocery.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7389038,
+            "longitude": -122.416742
+        }
+    },
+    {
+        "title": "El Cerrito Natural Grocery",
+        "address": "10367 San Pablo Ave",
+        "city": "El Cerrito",
+        "prov_state": "California",
+        "postal_zip": "94530",
+        "store_website": "https://naturalgrocery.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.90736680000001,
+            "longitude": -122.30634
+        }
+    },
+    {
+        "title": "Valencia Whole Foods",
+        "address": "999 Valencia St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7570345,
+            "longitude": -122.42097
+        }
+    },
+    {
+        "title": "Le Beau Market",
+        "address": "1263 Leavenworth St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94109",
+        "store_website": "https://www.lebeaumarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.792845,
+            "longitude": -122.4162927
+        }
+    },
+    {
+        "title": "Milk SF",
+        "address": "302 Valencia St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94103",
+        "store_website": "https://www.milk-sf.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.7679801,
+            "longitude": -122.422338
+        }
+    },
+    {
+        "title": "Guerrero Hill Market",
+        "address": "3398 22nd St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7553528,
+            "longitude": -122.4230331
+        }
+    },
+    {
+        "title": "Bi-Rite Market",
+        "address": "3639 18th St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": "https://biritemarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7613327,
+            "longitude": -122.4247155
+        }
+    },
+    {
+        "title": "Searchlight Market",
+        "address": "1964 Hyde St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94109",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7991351,
+            "longitude": -122.4189461
+        }
+    },
+    {
+        "title": "Haight Fillmore Whole Foods Co.",
+        "address": "501 Haight St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94117",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7719939,
+            "longitude": -122.4306294
+        }
+    },
+    {
+        "title": "Buffalo Whole Food & Grain Co.",
+        "address": "598 Castro St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94114",
+        "store_website": "http://www.buffalowholefoods.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7593873,
+            "longitude": -122.4350714
+        }
+    },
+    {
+        "title": "Canyon Market",
+        "address": "2815 Diamond St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94131",
+        "store_website": "https://canyonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7340832,
+            "longitude": -122.4336521
+        }
+    },
+    {
+        "title": "Santa Clara Natural Organic Market",
+        "address": "798 Haight St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94117",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7717422,
+            "longitude": -122.4352889
+        }
+    },
+    {
+        "title": "Giovanni's Produce",
+        "address": "1600 Liberty St",
+        "city": "El Cerrito",
+        "prov_state": "California",
+        "postal_zip": "94530",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9218178,
+            "longitude": -122.3124163
+        }
+    },
+    {
+        "title": "Mollie Stone's Markets",
+        "address": "2435 California St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94115",
+        "store_website": "https://molliestones.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7885472,
+            "longitude": -122.434559
+        }
+    },
+    {
+        "title": "Bi-Rite Market",
+        "address": "550 Divisadero St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94117",
+        "store_website": "https://biritemarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7747991,
+            "longitude": -122.4373902
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "1600 Palos Verdes Mall",
+        "city": "Walnut Creek",
+        "prov_state": "California",
+        "postal_zip": "94597",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9242843,
+            "longitude": -122.0889817
+        }
+    },
+    {
+        "title": "Equator Coffees",
+        "address": "2 Marina Blvd",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94123",
+        "store_website": "https://www.equatorcoffees.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.8067224,
+            "longitude": -122.4313474
+        }
+    },
+    {
+        "title": "Luke's Local",
+        "address": "2190 Union St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94123",
+        "store_website": "https://lukeslocal.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7972665,
+            "longitude": -122.435266
+        }
+    },
+    {
+        "title": "Pearl Market",
+        "address": "1201 Divisadero St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94115",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7806977,
+            "longitude": -122.4391799
+        }
+    },
+    {
+        "title": "Cow Hollow Market",
+        "address": "3165 Steiner St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94123",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7986279,
+            "longitude": -122.4376476
+        }
+    },
+    {
+        "title": "NOPA Corner Market",
+        "address": "1601 Fulton St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94117",
+        "store_website": "https://www.nopacornermarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7759914,
+            "longitude": -122.4432515
+        }
+    },
+    {
+        "title": "Home Service Market",
+        "address": "1700 Hayes St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94117",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.77429710000001,
+            "longitude": -122.4447069
+        }
+    },
+    {
+        "title": "Tony's Nature Foods",
+        "address": "1336 Grand Ave",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94133",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8059887,
+            "longitude": -122.4099154
+        }
+    },
+    {
+        "title": "Luke's Local",
+        "address": "960 Cole St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94110",
+        "store_website": "https://lukeslocal.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7650645,
+            "longitude": -122.4494884
+        }
+    },
+    {
+        "title": "Cindy's Market",
+        "address": "2084 Hayes St",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94117",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.7734499,
+            "longitude": -122.450826
+        }
+    },
+    {
+        "title": "Foundry & Lux",
+        "address": "151 Oyster Point Blvd",
+        "city": "South San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94080",
+        "store_website": "https://foundryandlux.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.6636358,
+            "longitude": -122.395003
+        }
+    },
+    {
+        "title": "Burlingame Farmers Market",
+        "address": "1236 Broadway",
+        "city": "Burlingame",
+        "prov_state": "California",
+        "postal_zip": "94010",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.5857907,
+            "longitude": -122.3653364
+        }
+    },
+    {
+        "title": "Draeger's Market",
+        "address": "222 E 4th Ave",
+        "city": "San Mateo",
+        "prov_state": "California",
+        "postal_zip": "94401",
+        "store_website": "https://www.draegers.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.5642948,
+            "longitude": -122.3214826
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "1825 El Camino Real",
+        "city": "Burlingame",
+        "prov_state": "California",
+        "postal_zip": "94010",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.5944426,
+            "longitude": -122.3850658
+        }
+    },
+    {
+        "title": "Draeger's Market",
+        "address": "4100 Blackhawk Plaza Cir",
+        "city": "Danville",
+        "prov_state": "California",
+        "postal_zip": "94506",
+        "store_website": "https://www.draegers.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8011775,
+            "longitude": -121.9187771
+        }
+    },
+    {
+        "title": "Equator Coffees",
+        "address": "Golden Gate Brg",
+        "city": "San Francisco",
+        "prov_state": "California",
+        "postal_zip": "94129",
+        "store_website": "https://www.equatorcoffees.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.808976,
+            "longitude": -122.4771178
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "2801 San Bruno Ave W",
+        "city": "San Bruno",
+        "prov_state": "California",
+        "postal_zip": "94066",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.6188785,
+            "longitude": -122.4395796
+        }
+    },
+    {
+        "title": "Piazza's Fine Foods",
+        "address": "1218 W Hillsdale Blvd",
+        "city": "San Mateo",
+        "prov_state": "California",
+        "postal_zip": "94403",
+        "store_website": "https://piazzaslovesfood.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.5339385,
+            "longitude": -122.3258978
+        }
+    },
+    {
+        "title": "Gene's Find Foods",
+        "address": "2803 Hopyard Rd",
+        "city": "Pleasanton",
+        "prov_state": "California",
+        "postal_zip": "94588",
+        "store_website": "https://genesfinefoods.net/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.6756491,
+            "longitude": -121.8951358
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "1085 Alameda de las Pulgas",
+        "city": "Belmont",
+        "prov_state": "California",
+        "postal_zip": "94002",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.5106159,
+            "longitude": -122.2931803
+        }
+    },
+    {
+        "title": "Bianchini's Market",
+        "address": "810 Laurel St",
+        "city": "San Carlos",
+        "prov_state": "California",
+        "postal_zip": "94070",
+        "store_website": "https://bianchinismarket.com/locations/san-carlos/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.5032076,
+            "longitude": -122.2578981
+        }
+    },
+    {
+        "title": "Oceana Market",
+        "address": "200 Eureka Dr",
+        "city": "Pacifica",
+        "prov_state": "California",
+        "postal_zip": "94044",
+        "store_website": "http://www.oceanamarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.6329118,
+            "longitude": -122.4877634
+        }
+    },
+    {
+        "title": "Mollie Stone's Markets",
+        "address": "100 Harbor Dr",
+        "city": "Sausalito",
+        "prov_state": "California",
+        "postal_zip": "94965",
+        "store_website": "https://molliestones.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8666415,
+            "longitude": -122.4995691
+        }
+    },
+    {
+        "title": "Woodlands Market",
+        "address": "1550 Tiburon Blvd",
+        "city": "Tiburon",
+        "prov_state": "California",
+        "postal_zip": "94920",
+        "store_website": "https://www.woodlandsmarket.com/tiburon/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8753884,
+            "longitude": -122.4606121
+        }
+    },
+    {
+        "title": "Sigona's Farmers Market",
+        "address": "2345 Middlefield Rd",
+        "city": "Redwood City",
+        "prov_state": "California",
+        "postal_zip": "94063",
+        "store_website": "https://www.sigonas.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.480071,
+            "longitude": -122.215997
+        }
+    },
+    {
+        "title": "Nugget Markets",
+        "address": "1 Blackfield Dr",
+        "city": "Tiburon",
+        "prov_state": "California",
+        "postal_zip": "94920",
+        "store_website": "https://www.nuggetmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8992848,
+            "longitude": -122.5002555
+        }
+    },
+    {
+        "title": "Delucchi's Market",
+        "address": "3640 Florence St",
+        "city": "Redwood City",
+        "prov_state": "California",
+        "postal_zip": "94063",
+        "store_website": "https://delucchismarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4782334,
+            "longitude": -122.1884527
+        }
+    },
+    {
+        "title": "Dehoff's Key Market",
+        "address": "1063 Upton St",
+        "city": "Redwood City",
+        "prov_state": "California",
+        "postal_zip": "94061",
+        "store_website": "https://www.dehoffskeymarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4668937,
+            "longitude": -122.2417693
+        }
+    },
+    {
+        "title": "Nugget Markets",
+        "address": "5627 Paradise Dr",
+        "city": "Corte Madera",
+        "prov_state": "California",
+        "postal_zip": "94925",
+        "store_website": "https://www.nuggetmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9190947,
+            "longitude": -122.5078265
+        }
+    },
+    {
+        "title": "The Willows Market",
+        "address": "60 Middlefield Rd",
+        "city": "Menlo Park",
+        "prov_state": "California",
+        "postal_zip": "94025",
+        "store_website": "http://www.willowsmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4545238,
+            "longitude": -122.1632868
+        }
+    },
+    {
+        "title": "Draeger's Market",
+        "address": "1010 University Dr",
+        "city": "Menlo Park",
+        "prov_state": "California",
+        "postal_zip": "94025",
+        "store_website": "https://www.draegers.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4491818,
+            "longitude": -122.185159
+        }
+    },
+    {
+        "title": "Good Earth",
+        "address": "201 Flamingo Rd",
+        "city": "Mill Valley",
+        "prov_state": "California",
+        "postal_zip": "94941",
+        "store_website": "https://www.genatural.com/locations/good-earth-natural-foods-mill-valley/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8809998,
+            "longitude": -122.5257694
+        }
+    },
+    {
+        "title": "Equator Coffees",
+        "address": "2 Miller Rd",
+        "city": "Mill Valley",
+        "prov_state": "California",
+        "postal_zip": "94901",
+        "store_website": "https://www.equatorcoffees.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.9060368,
+            "longitude": -122.5449763
+        }
+    },
+    {
+        "title": "Sigona's Farmers Market",
+        "address": "399 Stanford Shopping Center",
+        "city": "Palo Alto",
+        "prov_state": "California",
+        "postal_zip": "94304",
+        "store_website": "https://www.sigonas.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4425661,
+            "longitude": -122.1727202
+        }
+    },
+    {
+        "title": "The Market at Edgewood",
+        "address": "2170 W Bayshore Rd",
+        "city": "Palo Alto",
+        "prov_state": "California",
+        "postal_zip": "94303",
+        "store_website": "https://marketatedgewood.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4483113,
+            "longitude": -122.125449
+        }
+    },
+    {
+        "title": "Boichik Bagels",
+        "address": "238 Magnolia Ave",
+        "city": "Larkspur",
+        "prov_state": "CA",
+        "postal_zip": "94939",
+        "store_website": "https://boichikbagels.com/",
+        "uri": "boichik_shops",
+        "latlng": {
+            "latitude": 37.9328099,
+            "longitude": -122.5358071
+        }
+    },
+    {
+        "title": "Mollie Stone's Markets",
+        "address": "270 Bon Air Center",
+        "city": "Greenbrae",
+        "prov_state": "California",
+        "postal_zip": "94904",
+        "store_website": "https://molliestones.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.94566340000001,
+            "longitude": -122.5243141
+        }
+    },
+    {
+        "title": "Boichik Bagels",
+        "address": "885 El Camino Real",
+        "city": "Palo Alto",
+        "prov_state": "CA",
+        "postal_zip": "94301",
+        "store_website": "https://boichikbagels.com/",
+        "uri": "boichik_shops",
+        "latlng": {
+            "latitude": 37.4521925,
+            "longitude": -122.180578
+        }
+    },
+    {
+        "title": "United Market",
+        "address": "515 3rd St",
+        "city": "San Rafael",
+        "prov_state": "California",
+        "postal_zip": "94901",
+        "store_website": "https://unitedmarkets.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9705599,
+            "longitude": -122.5198887
+        }
+    },
+    {
+        "title": "Country Sun Natural Foods",
+        "address": "440 California Ave.",
+        "city": "Palo Alto",
+        "prov_state": "California",
+        "postal_zip": "94306",
+        "store_website": "https://countrysun.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4262032,
+            "longitude": -122.1454652
+        }
+    },
+    {
+        "title": "Spangler's Market",
+        "address": "401 Ave Alhambra",
+        "city": "Half Moon Bay",
+        "prov_state": "California",
+        "postal_zip": "94109",
+        "store_website": "https://spanglersmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.50449529999999,
+            "longitude": -122.4770472
+        }
+    },
+    {
+        "title": "Woodlands Market",
+        "address": "735 College Ave",
+        "city": "Kentield",
+        "prov_state": "California",
+        "postal_zip": "94904",
+        "store_website": "https://www.woodlandsmarket.com/kentfield/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9523066,
+            "longitude": -122.5500898
+        }
+    },
+    {
+        "title": "New Leaf Community Markets",
+        "address": "150 San Mateo Rd",
+        "city": "Half Moon Bay",
+        "prov_state": "California",
+        "postal_zip": "94019",
+        "store_website": "https://www.newleaf.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4690643,
+            "longitude": -122.4321308
+        }
+    },
+    {
+        "title": "Ada's Cafe",
+        "address": "3700 Middlefield Rd",
+        "city": "Palo Alto",
+        "prov_state": "California",
+        "postal_zip": "94303",
+        "store_website": "http://www.adascafe.org/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 37.4221989,
+            "longitude": -122.1128282
+        }
+    },
+    {
+        "title": "Piazza's Fine Foods",
+        "address": "3922 Middlefield Rd",
+        "city": "Palo Alto",
+        "prov_state": "California",
+        "postal_zip": "94303",
+        "store_website": "https://piazzaslovesfood.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4187416,
+            "longitude": -122.1101055
+        }
+    },
+    {
+        "title": "Anchor Pantry",
+        "address": "620 Marin St",
+        "city": "Vallejo",
+        "prov_state": "California",
+        "postal_zip": "94590",
+        "store_website": "https://anchorpantry.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.101776,
+            "longitude": -122.256459
+        }
+    },
+    {
+        "title": "Santa Venetia Market",
+        "address": "71 San Pablo Ave",
+        "city": "San Rafael",
+        "prov_state": "California",
+        "postal_zip": "94901",
+        "store_website": "http://santavenetiamarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9958269,
+            "longitude": -122.5284609
+        }
+    },
+    {
+        "title": "Bianchini's Market",
+        "address": "3130 Alpine Rd",
+        "city": "Portola Valley",
+        "prov_state": "California",
+        "postal_zip": "94028",
+        "store_website": "https://bianchinismarket.com/locations/portola-valley/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.4023519,
+            "longitude": -122.1931182
+        }
+    },
+    {
+        "title": "United Market",
+        "address": "100 Redhill Ave",
+        "city": "San Anselmo",
+        "prov_state": "California",
+        "postal_zip": "94960",
+        "store_website": "https://unitedmarkets.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9770919,
+            "longitude": -122.5532067
+        }
+    },
+    {
+        "title": "Ava's Downtown Market & Deli",
+        "address": "340 Castro St",
+        "city": "Mountain View",
+        "prov_state": "California",
+        "postal_zip": "94041",
+        "store_website": "https://avasmarketmv.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.3921324,
+            "longitude": -122.0802358
+        }
+    },
+    {
+        "title": "Good Earth",
+        "address": "720 Center Blvd",
+        "city": "Fairfax",
+        "prov_state": "California",
+        "postal_zip": "94930",
+        "store_website": "https://shop.genatural.com/stores/good-earth-natural-foods-fairfax",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.9862899,
+            "longitude": -122.5832224
+        }
+    },
+    {
+        "title": "Robert's Market",
+        "address": "4420 Alpine Rd",
+        "city": "Portola Valley",
+        "prov_state": "California",
+        "postal_zip": "94028",
+        "store_website": "http://www.robertsmarketwoodside.com/main.php",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.3729213,
+            "longitude": -122.2072903
+        }
+    },
+    {
+        "title": "Draeger's Market",
+        "address": "342 1st St",
+        "city": "Los Altos",
+        "prov_state": "California",
+        "postal_zip": "94022",
+        "store_website": "https://www.draegers.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.3762801,
+            "longitude": -122.1168684
+        }
+    },
+    {
+        "title": "Nugget Markets",
+        "address": "470 Ignacio Blvd",
+        "city": "Novato",
+        "prov_state": "California",
+        "postal_zip": "94949",
+        "store_website": "https://www.nuggetmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.0674838,
+            "longitude": -122.5428977
+        }
+    },
+    {
+        "title": "Zanotto's",
+        "address": "1356 S Mary Ave",
+        "city": "Sunnyvale",
+        "prov_state": "California",
+        "postal_zip": "94087",
+        "store_website": "https://www.zanottos.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.3504629,
+            "longitude": -122.0493549
+        }
+    },
+    {
+        "title": "Hankook Supermarket",
+        "address": "1092 E El Camino Real",
+        "city": "Sunnyvale",
+        "prov_state": "California",
+        "postal_zip": "94087",
+        "store_website": "https://www.hankooksupermarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.3516039,
+            "longitude": -122.0014747
+        }
+    },
+    {
+        "title": "Mitsuwa Marketplace",
+        "address": "675 Saratoga Ave",
+        "city": "San Jose",
+        "prov_state": "California",
+        "postal_zip": "95129",
+        "store_website": "https://mitsuwa.com/sj/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.3150592,
+            "longitude": -121.9779477
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "2666 S Bascom Ave",
+        "city": "San Jose",
+        "prov_state": "California",
+        "postal_zip": "95124",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.2732693,
+            "longitude": -121.9344722
+        }
+    },
+    {
+        "title": "Zanotto's",
+        "address": "1421 Foxworthy Ave",
+        "city": "San Jose",
+        "prov_state": "California",
+        "postal_zip": "95188",
+        "store_website": "https://www.zanottos.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.2753744,
+            "longitude": -121.8922768
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "720 Los Gatos Blvd",
+        "city": "Los Gatos",
+        "prov_state": "California",
+        "postal_zip": "95032",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.2344516,
+            "longitude": -121.9626861
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "4650 Meridian Ave",
+        "city": "San Jose",
+        "prov_state": "California",
+        "postal_zip": "95124",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.255758,
+            "longitude": -121.8981509
+        }
+    },
+    {
+        "title": "Palace Market",
+        "address": "11300 CA-1",
+        "city": "Point Reyes Station",
+        "prov_state": "California",
+        "postal_zip": "94956",
+        "store_website": "https://palacemarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.0683888,
+            "longitude": -122.8061758
+        }
+    },
+    {
+        "title": "New Leaf Community Markets",
+        "address": "5667 Silver Creek Valley Rd",
+        "city": "San Jose",
+        "prov_state": "California",
+        "postal_zip": "95138",
+        "store_website": "https://www.newleaf.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.287762,
+            "longitude": -121.780198
+        }
+    },
+    {
+        "title": "Silver Creek Community Market",
+        "address": "5667 Silver Creek Valley Rd",
+        "city": "San Jose",
+        "prov_state": "California",
+        "postal_zip": "95138",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.287762,
+            "longitude": -121.780198
+        }
+    },
+    {
+        "title": "Lunardi's Markets",
+        "address": "345 Railroad Ave",
+        "city": "Danville",
+        "prov_state": "California",
+        "postal_zip": "94526",
+        "store_website": "https://www.lunardis.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.8194114,
+            "longitude": -121.9987601
+        }
+    },
+    {
+        "title": "Glen Ellen Village Market",
+        "address": "13751 Arnold Dr",
+        "city": "Glen Ellen",
+        "prov_state": "California",
+        "postal_zip": "95442",
+        "store_website": "https://glenellenvillagemarket.org/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.3621981,
+            "longitude": -122.5254768
+        }
+    },
+    {
+        "title": "Summit Store",
+        "address": "24197 Summit Rd",
+        "city": "Los Gatos",
+        "prov_state": "California",
+        "postal_zip": "95033",
+        "store_website": "https://www.summitgrocerystore.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 37.1204347,
+            "longitude": -121.9286261
+        }
+    },
+    {
+        "title": "Sunshine Foods Market",
+        "address": "1115 Main St",
+        "city": "St. Helena",
+        "prov_state": "California",
+        "postal_zip": "94574",
+        "store_website": "https://www.sunshinefoodsmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.5027441,
+            "longitude": -122.4676958
+        }
+    },
+    {
+        "title": "New Leaf Community Markets",
+        "address": "1134 Pacific Ave",
+        "city": "Santa Cruz",
+        "prov_state": "California",
+        "postal_zip": "95060",
+        "store_website": "https://www.newleaf.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.9726947,
+            "longitude": -122.0254525
+        }
+    },
+    {
+        "title": "The Food Bin",
+        "address": "1130 Mission St",
+        "city": "Santa Cruz",
+        "prov_state": "California",
+        "postal_zip": "95060",
+        "store_website": "https://foodbinherbroom.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.9698329,
+            "longitude": -122.0374198
+        }
+    },
+    {
+        "title": "Pacific Market",
+        "address": "1465 Town and Country Dr",
+        "city": "Santa Rosa",
+        "prov_state": "California",
+        "postal_zip": "95404",
+        "store_website": "https://www.pacificmkt.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.4539397,
+            "longitude": -122.7022742
+        }
+    },
+    {
+        "title": "New Leaf Community Markets",
+        "address": "1101 Fair Ave",
+        "city": "Santa Cruz",
+        "prov_state": "California",
+        "postal_zip": "95060",
+        "store_website": "https://www.newleaf.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.9591022,
+            "longitude": -122.046399
+        }
+    },
+    {
+        "title": "New Leaf Community Markets",
+        "address": "1210 41st Ave",
+        "city": "Capitola",
+        "prov_state": "California",
+        "postal_zip": "95010",
+        "store_website": "https://www.newleaf.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.969364,
+            "longitude": -121.9635793
+        }
+    },
+    {
+        "title": "New Leaf Community Markets",
+        "address": "161 Aptos Village Way",
+        "city": "Aptos",
+        "prov_state": "California",
+        "postal_zip": "95003",
+        "store_website": "https://www.newleaf.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.9783698,
+            "longitude": -121.9003316
+        }
+    },
+    {
+        "title": "Pacific Market",
+        "address": "550 Gravenstein Hwy N",
+        "city": "Sebastopol",
+        "prov_state": "California",
+        "postal_zip": "95472",
+        "store_website": "https://www.pacificmkt.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.4056633,
+            "longitude": -122.8381538
+        }
+    },
+    {
+        "title": "Bill's Farm Basket",
+        "address": "10315 Bodega Hwy",
+        "city": "Sebastopol",
+        "prov_state": "California",
+        "postal_zip": "95472",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.392021,
+            "longitude": -122.8784434
+        }
+    },
+    {
+        "title": "Davis Food Co-op",
+        "address": "620 G St",
+        "city": "Davis",
+        "prov_state": "California",
+        "postal_zip": "95616",
+        "store_website": "https://davisfood.coop/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.549558,
+            "longitude": -121.7398515
+        }
+    },
+    {
+        "title": "Speers Market",
+        "address": "7891 Mirabel Rd",
+        "city": "Forrestville",
+        "prov_state": "California",
+        "postal_zip": "95436",
+        "store_website": "https://www.speersmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.4899594,
+            "longitude": -122.8943943
+        }
+    },
+    {
+        "title": "Camelia Coffee Roasters",
+        "address": "1200 R St",
+        "city": "Sacramento",
+        "prov_state": "California",
+        "postal_zip": "95811",
+        "store_website": "https://camelliacoffeeroasters.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 38.5703956,
+            "longitude": -121.4942755
+        }
+    },
+    {
+        "title": "Majka Pizzeria & Bakery",
+        "address": "1704 15th St",
+        "city": "Sacramento",
+        "prov_state": "California",
+        "postal_zip": "95814",
+        "store_website": "https://majkabakes.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 38.5705016,
+            "longitude": -121.49021
+        }
+    },
+    {
+        "title": "Sacramento Natural Foods Co-op",
+        "address": "2820 R St",
+        "city": "Sacramento",
+        "prov_state": "California",
+        "postal_zip": "95816",
+        "store_website": "https://www.sac.coop/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 38.564536,
+            "longitude": -121.4726809
+        }
+    },
+    {
+        "title": "Burnside Coffee",
+        "address": "902 K St",
+        "city": "Sacramento",
+        "prov_state": "California",
+        "postal_zip": "95814",
+        "store_website": "https://www.dontdrinkburnside.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 38.5791841,
+            "longitude": -121.4951732
+        }
+    },
+    {
+        "title": "Elroy's Fine Foods",
+        "address": "15 Soledad Dr",
+        "city": "Monterey",
+        "prov_state": "California",
+        "postal_zip": "93940",
+        "store_website": "https://www.elroysfinefoods.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.5845197,
+            "longitude": -121.9038486
+        }
+    },
+    {
+        "title": "The Yummy Cookie",
+        "address": "10305 Fairway Dr",
+        "city": "Roseville",
+        "prov_state": "California",
+        "postal_zip": "95678",
+        "store_website": "https://www.theyummycookie.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 38.7891817,
+            "longitude": -121.28253
+        }
+    },
+    {
+        "title": "Kasey's Market",
+        "address": "2 Del Fino Pl",
+        "city": "Carmel Valley",
+        "prov_state": "California",
+        "postal_zip": "93924",
+        "store_website": null,
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 36.4802301,
+            "longitude": -121.733155
+        }
+    },
+    {
+        "title": "Deetjen's Big Sur Inn",
+        "address": "48865 CA-1",
+        "city": "Big Sur",
+        "prov_state": "California",
+        "postal_zip": "93920",
+        "store_website": "https://www.deetjens.com/restaurant.html",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 36.2176496,
+            "longitude": -121.7507799
+        }
+    },
+    {
+        "title": "Point Arena Pizza",
+        "address": "790 Port Rd",
+        "city": "Point Arena",
+        "prov_state": "California",
+        "postal_zip": "95468",
+        "store_website": "https://pointarenapizza.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 38.9146253,
+            "longitude": -123.7095294
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "26767 Agoura Rd",
+        "city": "Calabasas",
+        "prov_state": "California",
+        "postal_zip": "91302",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.1409405,
+            "longitude": -118.707475
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "23379 Mulholland Dr",
+        "city": "Woodland Hills",
+        "prov_state": "California",
+        "postal_zip": "91364",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.1583008,
+            "longitude": -118.6351788
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "12833 Ventura Blvd",
+        "city": "Studio City",
+        "prov_state": "California",
+        "postal_zip": "91604",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.1460032,
+            "longitude": -118.4132981
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "15285 W. Sunset Blvd",
+        "city": "Pacific Palisades",
+        "prov_state": "California",
+        "postal_zip": "90272",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0470255,
+            "longitude": -118.5251015
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "3501 Wilshire Blvd",
+        "city": "Santa Monica",
+        "prov_state": "California",
+        "postal_zip": "90403",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.041234,
+            "longitude": -118.471541
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "2800 Wilshire Blvd",
+        "city": "Santa Monica",
+        "prov_state": "California",
+        "postal_zip": "90403",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0375295,
+            "longitude": -118.4752363
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "1515 Westwood Blvd",
+        "city": "Los Angeles",
+        "prov_state": "California",
+        "postal_zip": "90024",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0534473,
+            "longitude": -118.4405529
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "339 N. Beverly Dr",
+        "city": "Beverly Hills",
+        "prov_state": "California",
+        "postal_zip": "90210",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0691829,
+            "longitude": -118.4014255
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "9039 Beverly Blvd",
+        "city": "West Hollywood",
+        "prov_state": "California",
+        "postal_zip": "90048",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0774131,
+            "longitude": -118.3894924
+        }
+    },
+    {
+        "title": "Yummy.com",
+        "address": "9769 W Pico Blvd",
+        "city": "Los Angeles",
+        "prov_state": "California",
+        "postal_zip": "90035",
+        "store_website": "http://yummy.com",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0544258,
+            "longitude": -118.4017004
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "7660 Beverly Blvd",
+        "city": "Los Angeles",
+        "prov_state": "California",
+        "postal_zip": "90036",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0758455,
+            "longitude": -118.3566389
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "585 Venice Blvd",
+        "city": "Venice",
+        "prov_state": "California",
+        "postal_zip": "90291",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.9897812,
+            "longitude": -118.4622029
+        }
+    },
+    {
+        "title": "Yummy.com",
+        "address": "5520 San Vicente Blvd",
+        "city": "Los Angeles",
+        "prov_state": "California",
+        "postal_zip": "90019",
+        "store_website": "http://yummy.com",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0536468,
+            "longitude": -118.3546646
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "9300 Culver Blvd",
+        "city": "Culver City",
+        "prov_state": "California",
+        "postal_zip": "90232",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0246419,
+            "longitude": -118.3933009
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "4121 Santa Monica Blvd",
+        "city": "Los Angeles",
+        "prov_state": "California",
+        "postal_zip": "90029",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0920978,
+            "longitude": -118.2824281
+        }
+    },
+    {
+        "title": "Yummy.com",
+        "address": "3607 Sunset Blvd",
+        "city": "Los Angeles",
+        "prov_state": "California",
+        "postal_zip": "90026",
+        "store_website": "http://yummy.com",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.0903543,
+            "longitude": -118.2769372
+        }
+    },
+    {
+        "title": "Yummy.com",
+        "address": "6020 S Seabluff Dr",
+        "city": "Playa Vista",
+        "prov_state": "California",
+        "postal_zip": "90094",
+        "store_website": "http://yummy.com",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.9734736,
+            "longitude": -118.4222843
+        }
+    },
+    {
+        "title": "Erewhon Market",
+        "address": "475 S. Lake Ave",
+        "city": "Pasadena",
+        "prov_state": "California",
+        "postal_zip": "91101",
+        "store_website": "https://shop.erewhonmarket.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.13755,
+            "longitude": -118.132687
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "606 Fair Oaks Ave",
+        "city": "South Pasadena",
+        "prov_state": "California",
+        "postal_zip": "91030",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 34.11864070000001,
+            "longitude": -118.1496626
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "1570 Rosecrans Ave",
+        "city": "Manhattan Beach",
+        "prov_state": "California",
+        "postal_zip": "90266",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.9006033,
+            "longitude": -118.3856571
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "837 Silver Spur Rd",
+        "city": "Rolling Hills Estates",
+        "prov_state": "California",
+        "postal_zip": "90274",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.7696039,
+            "longitude": -118.3680805
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "18421 Yorba Linda Blvd",
+        "city": "Yorba Linda",
+        "prov_state": "California",
+        "postal_zip": "92886",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.8892013,
+            "longitude": -117.8121481
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "810 Avocado Ave",
+        "city": "Newport Beach",
+        "prov_state": "California",
+        "postal_zip": "92660",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.6062724,
+            "longitude": -117.8733163
+        }
+    },
+    {
+        "title": "Equator Coffees",
+        "address": "160 S Coast Hwy",
+        "city": "Laguna Beach",
+        "prov_state": "California",
+        "postal_zip": "92651",
+        "store_website": "https://www.equatorcoffees.com/",
+        "uri": "cafe",
+        "latlng": {
+            "latitude": 33.5426413,
+            "longitude": -117.784475
+        }
+    },
+    {
+        "title": "Jimbo's",
+        "address": "1923 Calle Barcelona",
+        "city": "Carlsbad",
+        "prov_state": "California",
+        "postal_zip": "92009",
+        "store_website": "https://jimbos.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.0726342,
+            "longitude": -117.2661879
+        }
+    },
+    {
+        "title": "Bristol Farms",
+        "address": "73101 Country Club Dr",
+        "city": "Palm Desert",
+        "prov_state": "California",
+        "postal_zip": "92260",
+        "store_website": "http://www.bristolfarms.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.7570273,
+            "longitude": -116.3892311
+        }
+    },
+    {
+        "title": "Jimbo's",
+        "address": "1633 S. Centre City Pkwy",
+        "city": "Escondido",
+        "prov_state": "California",
+        "postal_zip": "92025",
+        "store_website": "https://jimbos.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.1042667,
+            "longitude": -117.0773496
+        }
+    },
+    {
+        "title": "Jimbo's",
+        "address": "12841 El Camino Real",
+        "city": "San Diego",
+        "prov_state": "California",
+        "postal_zip": "92130",
+        "store_website": "https://jimbos.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 32.9498926,
+            "longitude": -117.2337332
+        }
+    },
+    {
+        "title": "Jimbo's",
+        "address": "10511 4S Commons Dr",
+        "city": "San Diego",
+        "prov_state": "California",
+        "postal_zip": "92127",
+        "store_website": "https://jimbos.com/",
+        "uri": "grocery",
+        "latlng": {
+            "latitude": 33.0192537,
+            "longitude": -117.1135412
+        }
+    }
+]
