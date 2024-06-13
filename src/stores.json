@@ -253,7 +253,7 @@
         "prov_state": "CA",
         "postal_zip": "94705",
         "store_website": "https://boichikbagels.com/",
-        "uri": "boichik_shops",
+        "uri": "bagel",
         "latlng": {
             "latitude": 37.8514837,
             "longitude": -122.2526898
@@ -461,7 +461,7 @@
         "prov_state": "CA",
         "postal_zip": "94710",
         "store_website": "https://boichikbagels.com/",
-        "uri": "boichik_shops",
+        "uri": "bagel",
         "latlng": {
             "latitude": 37.8804919,
             "longitude": -122.3013209
@@ -1280,7 +1280,7 @@
         "prov_state": "CA",
         "postal_zip": "94939",
         "store_website": "https://boichikbagels.com/",
-        "uri": "boichik_shops",
+        "uri": "bagel",
         "latlng": {
             "latitude": 37.9328099,
             "longitude": -122.5358071
@@ -1306,7 +1306,7 @@
         "prov_state": "CA",
         "postal_zip": "94301",
         "store_website": "https://boichikbagels.com/",
-        "uri": "boichik_shops",
+        "uri": "bagel",
         "latlng": {
             "latitude": 37.4521925,
             "longitude": -122.180578

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {StyleSheet, View, Text, Dimensions, ScrollView, Image} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
-const MAX_ICON_SIZE = 30;
+const MAX_ICON_SIZE = 35;
+const TOP_RADIUS = 13;
 
 interface MarkerData {
   title: string;
@@ -24,22 +25,7 @@ const Map = () => {
 
   const [markers, setMarkers] = useState<MarkerData[]>([]);
 
-  const [pictures] = useState([
-    {
-      uri: 'home_navBar_1',
-    },
-    {
-      uri: 'bagelFinder_navBar_2',
-    },
-    {
-      uri: 'shoppingCart_navBar_3',
-    },
-    {
-      uri: 'profile_navBar_4',
-    },
-  ]);
-
-  const fetchData = () => {
+  const fetchData = async () => {
     try {
       const data = require('./stores.json');
       setMarkers(data);
@@ -54,6 +40,29 @@ const Map = () => {
 
   return (
     <View style={styles.fullView}>
+      <View style={styles.topBar}>
+        <Text style={styles.topBarText}>Bagel Finder</Text>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity 
+            style={[styles.button, styles.selectedButton]} 
+          >
+            <Image style={styles.icon} source={{uri:'bagel_inactive'}} />
+            <Text style={styles.buttonText}>IN-STORE</Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[styles.button, styles.selectedButton]} 
+          >
+            <Image style={styles.icon} source={{uri:'grocery_inactive'}} />
+            <Text style={styles.buttonText}>GROCERY</Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[styles.button, styles.selectedButton]} 
+          >
+            <Image style={styles.icon} source={{uri:'cafe_inactive'}} />
+            <Text style={styles.buttonText}>CAFE</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
       <MapView provider={PROVIDER_GOOGLE}
         style={styles.map}
         region={{
@@ -64,56 +73,85 @@ const Map = () => {
         }}
         showsUserLocation={true}
       >
-        {/* {markers.map((marker, index) => (
+        {markers.map((marker, index) => (
           <Marker
             key={index}
             coordinate={marker.latlng}
             title={marker.title}
             description={marker.description}
-            image={{uri:marker.uri}}
-          />
-        ))} */}
-      </MapView>
-      <View style={styles.legendBox}>
-        {pictures.map((marker, index) => (
-          <View key={index} style={styles.legendItem}>
-            <Image source={{uri:marker.uri}} style={styles.legendIcon} />
-          </View>
+          >
+            <Image
+              source={{ uri: marker.uri }}
+              style={{
+                width: MAX_ICON_SIZE,
+                height: MAX_ICON_SIZE + 15,
+                resizeMode: 'contain',
+              }}
+            />
+          </Marker>
+          
         ))}
-      </View>
+      </MapView>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-    map: {
-      ...StyleSheet.absoluteFillObject,
-    },
-    fullView: {
-      ...StyleSheet.absoluteFillObject,
-    },
-    legendBox: {
-      justifyContent: 'center',
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      paddingVertical: 10,
-      paddingHorizontal: 10,
-      backgroundColor: '#213A6B',
-      flexDirection: 'row',
-      height: Dimensions.get('window').height * 0.08,
-    },
-    legendItem: {
-      alignItems: 'center',
-      flexDirection: 'row',
-      marginHorizontal: 30,
-    },
-    legendIcon: {
-      width: MAX_ICON_SIZE,
-      height: MAX_ICON_SIZE,
-      resizeMode: 'contain',
-    },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  fullView: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  topBar: {
+    width: '100%',
+    height: '23%',
+    backgroundColor: '#213A6B',
+    padding: 15,
+    alignItems: 'center',
+    position: 'absolute',
+    zIndex: 1,
+    borderBottomLeftRadius: TOP_RADIUS,
+    borderBottomRightRadius: TOP_RADIUS,
+  },
+  topBarText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 10,
+    width: '100%',
+  },
+  button: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginHorizontal: 7,
+    padding: 5,
+    paddingHorizontal: 20,
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 30,
+    flex: 1,
+    justifyContent: 'center',
+  },
+  selectedButton: {
+    backgroundColor: '#213A6B',
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 600,
+    fontSize: 10.5,
+    marginLeft: 5,
+  },
+  icon: {
+    width: MAX_ICON_SIZE - 15,
+    height: MAX_ICON_SIZE,
+    resizeMode: 'contain',
+  },
 });
    
 export default Map;

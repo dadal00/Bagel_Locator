@@ -27,7 +27,7 @@ const App: React.FC = () => {
                 iconName = 'home';
                 break;
               case 'Finder':
-                iconName = 'magnifying_glass';
+                iconName = 'glass';
                 break;
               case 'Order':
                 iconName = 'cart';
@@ -56,10 +56,10 @@ const App: React.FC = () => {
           tabBarShowLabel: false,
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Finder" component={FinderScreen} />
-        <Tab.Screen name="Order" component={OrderScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+        <Tab.Screen name="Finder" component={FinderScreen} options={{ headerShown: false }}/>
+        <Tab.Screen name="Order" component={OrderScreen} options={{ headerShown: false }}/>
+        <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
