@@ -88,25 +88,25 @@ const Map = () => {
         <Text style={styles.topBarText}>Bagel Finder</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity 
-            style={[selectedButton === 'IN-STORE' ? styles.selectedButton : null, styles.button]}
-            onPress={() => setSelectedButton(selectedButton === 'IN-STORE' ? null : 'IN-STORE')}
+            style={[selectedButton === 'bagel' ? styles.selectedButton : null, styles.button]}
+            onPress={() => setSelectedButton(selectedButton === 'bagel' ? null : 'bagel')}
           >
-            <Image style={styles.icon} source={{uri:selectedButton === 'IN-STORE' ? 'bagel' : 'bagel_inactive'}} />
-            <Text style={selectedButton === 'IN-STORE' ? styles.selectedButtonText : styles.buttonText}>  IN-STORE</Text>
+            <Image style={styles.icon} source={{uri:selectedButton === 'bagel' ? 'bagel' : 'bagel_inactive'}} />
+            <Text style={selectedButton === 'bagel' ? styles.selectedButtonText : styles.buttonText}>  IN-STORE</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.button, selectedButton === 'GROCERY' ? styles.selectedButton : null]} 
-            onPress={() => setSelectedButton(selectedButton === 'GROCERY' ? null : 'GROCERY')}
+            style={[styles.button, selectedButton === 'grocery' ? styles.selectedButton : null]} 
+            onPress={() => setSelectedButton(selectedButton === 'grocery' ? null : 'grocery')}
           >
-            <Image style={styles.icon} source={{uri:selectedButton === 'GROCERY' ? 'grocery' : 'grocery_inactive'}} />
-            <Text style={selectedButton === 'GROCERY' ? styles.selectedButtonText : styles.buttonText}>  GROCERY</Text>
+            <Image style={styles.icon} source={{uri:selectedButton === 'grocery' ? 'grocery' : 'grocery_inactive'}} />
+            <Text style={selectedButton === 'grocery' ? styles.selectedButtonText : styles.buttonText}>  GROCERY</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.button, selectedButton === 'CAFE' ? styles.selectedButton : null]} 
-            onPress={() => setSelectedButton(selectedButton === 'CAFE' ? null : 'CAFE')}
+            style={[styles.button, selectedButton === 'cafe' ? styles.selectedButton : null]} 
+            onPress={() => setSelectedButton(selectedButton === 'cafe' ? null : 'cafe')}
           >
-            <Image style={styles.icon} source={{uri:selectedButton === 'CAFE' ? 'cafe_active' : 'cafe_inactive'}} />
-            <Text style={selectedButton === 'CAFE' ? styles.selectedButtonText : styles.buttonText}>  CAFE</Text>
+            <Image style={styles.icon} source={{uri:selectedButton === 'cafe' ? 'cafe_active' : 'cafe_inactive'}} />
+            <Text style={selectedButton === 'cafe' ? styles.selectedButtonText : styles.buttonText}>  CAFE</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -115,24 +115,29 @@ const Map = () => {
         region={initialRegion}
         showsUserLocation={true}
       >
-        {markers.map((marker, index) => (
-          <Marker
-            key={index}
-            coordinate={marker.latlng}
-            title={marker.title}
-            description={marker.description}
-          >
-            <Image
-              source={{ uri: marker.uri }}
-              style={{
-                width: MAX_ICON_SIZE,
-                height: MAX_ICON_SIZE + 15,
-                resizeMode: 'contain',
-              }}
-            />
-          </Marker>
-          
-        ))}
+        {markers.map((marker, index) => {
+          if (!selectedButton || marker.uri === selectedButton) {
+            return (
+              <Marker
+                key={index}
+                coordinate={marker.latlng}
+                title={marker.title}
+                description={marker.description}
+              >
+                <Image
+                  source={{ uri: marker.uri }}
+                  style={{
+                    width: MAX_ICON_SIZE,
+                    height: MAX_ICON_SIZE + 15,
+                    resizeMode: 'contain',
+                  }}
+                />
+              </Marker>
+            );
+          } else {
+            return null;
+          }
+        })}
       </MapView>
       
     </View>
