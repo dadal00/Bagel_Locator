@@ -1,6 +1,8 @@
+import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useState } from 'react';
-import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -24,6 +26,13 @@ interface MarkerData {
 const Map = () => {
 
   const [markers, setMarkers] = useState<MarkerData[]>([]);
+  const [selectedButton, setSelectedButton] = useState<string | null>(null);
+  const [initialRegion, setInitialRegion] = useState({
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.0121,
+  });
 
   const fetchData = async () => {
     try {
@@ -34,8 +43,43 @@ const Map = () => {
     }
   };
 
+  const getUserLocation = async () => {
+    const permission =
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+        : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
+
+    const result = await check(permission);
+
+    if (result === RESULTS.GRANTED) {
+      Geolocation.getCurrentPosition(
+        position => {
+          const { latitude, longitude } = position.coords;
+          setInitialRegion({
+            latitude,
+            longitude,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+          });
+        },
+        error => console.error('Error getting location:', error),
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      );
+    } else if (result === RESULTS.DENIED) {
+      const requestResult = await request(permission);
+      if (requestResult === RESULTS.GRANTED) {
+        getUserLocation(); // Retry getting the location after permission is granted
+      } else {
+        Alert.alert('Permission Denied', 'Location permission is required to show your current location.');
+      }
+    } else {
+      Alert.alert('Permission Denied', 'Location permission is required to show your current location.');
+    }
+  };
+
   React.useEffect(() => {
     fetchData();
+    getUserLocation();
   }, []);
 
   return (
@@ -44,33 +88,31 @@ const Map = () => {
         <Text style={styles.topBarText}>Bagel Finder</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity 
-            style={[styles.button, styles.selectedButton]} 
+            style={[selectedButton === 'IN-STORE' ? styles.selectedButton : null, styles.button]}
+            onPress={() => setSelectedButton(selectedButton === 'IN-STORE' ? null : 'IN-STORE')}
           >
-            <Image style={styles.icon} source={{uri:'bagel_inactive'}} />
-            <Text style={styles.buttonText}>IN-STORE</Text>
+            <Image style={styles.icon} source={{uri:selectedButton === 'IN-STORE' ? 'bagel' : 'bagel_inactive'}} />
+            <Text style={selectedButton === 'IN-STORE' ? styles.selectedButtonText : styles.buttonText}>  IN-STORE</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.button, styles.selectedButton]} 
+            style={[styles.button, selectedButton === 'GROCERY' ? styles.selectedButton : null]} 
+            onPress={() => setSelectedButton(selectedButton === 'GROCERY' ? null : 'GROCERY')}
           >
-            <Image style={styles.icon} source={{uri:'grocery_inactive'}} />
-            <Text style={styles.buttonText}>GROCERY</Text>
+            <Image style={styles.icon} source={{uri:selectedButton === 'GROCERY' ? 'grocery' : 'grocery_inactive'}} />
+            <Text style={selectedButton === 'GROCERY' ? styles.selectedButtonText : styles.buttonText}>  GROCERY</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.button, styles.selectedButton]} 
+            style={[styles.button, selectedButton === 'CAFE' ? styles.selectedButton : null]} 
+            onPress={() => setSelectedButton(selectedButton === 'CAFE' ? null : 'CAFE')}
           >
-            <Image style={styles.icon} source={{uri:'cafe_inactive'}} />
-            <Text style={styles.buttonText}>CAFE</Text>
+            <Image style={styles.icon} source={{uri:selectedButton === 'CAFE' ? 'cafe_active' : 'cafe_inactive'}} />
+            <Text style={selectedButton === 'CAFE' ? styles.selectedButtonText : styles.buttonText}>  CAFE</Text>
           </TouchableOpacity>
         </View>
       </View>
       <MapView provider={PROVIDER_GOOGLE}
         style={styles.map}
-        region={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.0121,
-        }}
+        region={initialRegion}
         showsUserLocation={true}
       >
         {markers.map((marker, index) => (
@@ -119,18 +161,19 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
+    marginTop: 35,
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 10,
+    justifyContent: 'center',
+    marginTop: 15,
     width: '100%',
   },
   button: {
     alignItems: 'center',
     flexDirection: 'row',
     marginHorizontal: 7,
-    padding: 5,
+    padding: 3,
     paddingHorizontal: 20,
     borderColor: 'white',
     borderWidth: 1,
@@ -139,12 +182,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selectedButton: {
-    backgroundColor: '#213A6B',
+    backgroundColor: 'white',
   },
   buttonText: {
     color: 'white',
-    fontWeight: 600,
-    fontSize: 10.5,
+    fontFamily: 'RobotoSlab-Bold',
+    fontSize: 10,
+    marginLeft: 5,
+  },
+  selectedButtonText: {
+    color: '#213A6B',
+    fontFamily: 'RobotoSlab-Bold',
+    fontSize: 10,
     marginLeft: 5,
   },
   icon: {
