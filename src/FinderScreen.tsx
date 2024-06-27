@@ -1,21 +1,21 @@
 import Geolocation from '@react-native-community/geolocation';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
+import CustomCallout from "./Callout";
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const MAX_ICON_SIZE = 35;
 const TOP_RADIUS = 13;
 
-interface MarkerData {
+export type MarkerData = {
   title: string;
   address: string;
   city: string;
   prov_state: string;
   postal_zip: string;
-  description: string;
   uri: string;
   latlng: {
     latitude: number;
@@ -68,7 +68,7 @@ const Map = () => {
     } else if (result === RESULTS.DENIED) {
       const requestResult = await request(permission);
       if (requestResult === RESULTS.GRANTED) {
-        getUserLocation(); // Retry getting the location after permission is granted
+        getUserLocation();
       } else {
         Alert.alert('Permission Denied', 'Location permission is required to show your current location.');
       }
@@ -122,13 +122,13 @@ const Map = () => {
                 key={index}
                 coordinate={marker.latlng}
                 title={marker.title}
-                description={marker.description}
               >
+                <CustomCallout marker={marker}></CustomCallout>
                 <Image
                   source={{ uri: marker.uri }}
                   style={{
-                    width: MAX_ICON_SIZE,
-                    height: MAX_ICON_SIZE + 15,
+                    width: MAX_ICON_SIZE - 5,
+                    height: MAX_ICON_SIZE + 5,
                     resizeMode: 'contain',
                   }}
                 />
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
+    fontFamily: 'Sora-Regular',
     marginTop: 35,
   },
   buttonContainer: {
