@@ -1,7 +1,8 @@
 import Geolocation from '@react-native-community/geolocation';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
+import Map, {PROVIDER_GOOGLE, Marker, Camera} from 'react-native-maps';
+import MapView from "react-native-map-clustering";
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 import CustomCallout from "./Callout";
 
@@ -13,18 +14,24 @@ const TOP_RADIUS = 13;
 export type MarkerData = {
   title: string;
   address: string;
-  city: string;
-  prov_state: string;
-  postal_zip: string;
   uri: string;
   latlng: {
     latitude: number;
     longitude: number;
-  }
-}
+  };
+  address_2: string;
+  place_id: string;
+  business_status: string;
+  opening_hours: {
+    [day: string]: {
+      open: string;
+      close: string;
+    };
+  };
+};
 
-const Map = () => {
-
+const MapScreen = () => {
+  const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [initialRegion, setInitialRegion] = useState({
@@ -77,6 +84,16 @@ const Map = () => {
     }
   };
 
+  const onMarkerPress = (latlng: any) => {
+    if (mapRef.current) {
+      mapRef.current.animateToRegion({
+        ...latlng,
+        latitudeDelta: 0.015,
+        longitudeDelta: 0.0121,
+      });
+    }
+  };
+
   React.useEffect(() => {
     fetchData();
     getUserLocation();
@@ -111,9 +128,12 @@ const Map = () => {
         </View>
       </View>
       <MapView provider={PROVIDER_GOOGLE}
+        ref={mapRef}
         style={styles.map}
         region={initialRegion}
         showsUserLocation={true}
+        clusterColor="#213A6B"
+        radius={SCREEN_WIDTH * 0.09}
       >
         {markers.map((marker, index) => {
           if (!selectedButton || marker.uri === selectedButton) {
@@ -122,6 +142,8 @@ const Map = () => {
                 key={index}
                 coordinate={marker.latlng}
                 title={marker.title}
+                tracksViewChanges={false}
+                onPress={() => onMarkerPress(marker.latlng)}
               >
                 <CustomCallout marker={marker}></CustomCallout>
                 <Image
@@ -139,7 +161,6 @@ const Map = () => {
           }
         })}
       </MapView>
-      
     </View>
   );
 };
@@ -209,4 +230,8 @@ const styles = StyleSheet.create({
   },
 });
    
-export default Map;
+export default MapScreen;
+function markerOnPress(coord: any) {
+  throw new Error('Function not implemented.');
+}
+
