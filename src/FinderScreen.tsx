@@ -1,6 +1,6 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
-import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, Animated} from 'react-native';
 import Map, {PROVIDER_GOOGLE, Marker, Camera} from 'react-native-maps';
 import MapView from "react-native-map-clustering";
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
@@ -10,6 +10,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const MAX_ICON_SIZE = 35;
 const TOP_RADIUS = 13;
+const BOT_RADIUS = 22;
 
 export type MarkerData = {
   title: string;
@@ -31,6 +32,8 @@ export type MarkerData = {
 };
 
 const MapScreen = () => {
+  const [expanded, setExpanded] = useState(false);
+  const animation = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -49,6 +52,20 @@ const MapScreen = () => {
       console.error('Error fetching data:', error);
     }
   };
+
+  const toggleExpand = () => {
+    Animated.timing(animation, {
+      toValue: expanded ? 0 : 1,
+      duration: 300,
+      useNativeDriver: false, // useNativeDriver: false since we are animating layout properties
+    }).start();
+    setExpanded(!expanded);
+  };
+
+  const containerHeight = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['15%', '60%'], // Change these to the desired heights
+  });
 
   const getUserLocation = async () => {
     const permission =
@@ -94,6 +111,14 @@ const MapScreen = () => {
     }
   };
 
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  const resetScrollView = () => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ y: 0, animated: true });
+    }
+  };
+
   React.useEffect(() => {
     fetchData();
     getUserLocation();
@@ -106,21 +131,21 @@ const MapScreen = () => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity 
             style={[selectedButton === 'bagel' ? styles.selectedButton : null, styles.button]}
-            onPress={() => setSelectedButton(selectedButton === 'bagel' ? null : 'bagel')}
+            onPress={() => {setSelectedButton(selectedButton === 'bagel' ? null : 'bagel'); resetScrollView();}}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'bagel' ? 'bagel' : 'bagel_inactive'}} />
             <Text style={selectedButton === 'bagel' ? styles.selectedButtonText : styles.buttonText}>  IN-STORE</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.button, selectedButton === 'grocery' ? styles.selectedButton : null]} 
-            onPress={() => setSelectedButton(selectedButton === 'grocery' ? null : 'grocery')}
+            onPress={() => {setSelectedButton(selectedButton === 'grocery' ? null : 'grocery'); resetScrollView();}}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'grocery' ? 'grocery' : 'grocery_inactive'}} />
             <Text style={selectedButton === 'grocery' ? styles.selectedButtonText : styles.buttonText}>  GROCERY</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.button, selectedButton === 'cafe' ? styles.selectedButton : null]} 
-            onPress={() => setSelectedButton(selectedButton === 'cafe' ? null : 'cafe')}
+            onPress={() => {setSelectedButton(selectedButton === 'cafe' ? null : 'cafe'); resetScrollView();}}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'cafe' ? 'cafe_active' : 'cafe_inactive'}} />
             <Text style={selectedButton === 'cafe' ? styles.selectedButtonText : styles.buttonText}>  CAFE</Text>
@@ -161,11 +186,59 @@ const MapScreen = () => {
           }
         })}
       </MapView>
+      <Animated.View style={[styles.bottomBar, { height: containerHeight }]}>
+        <View style={styles.tap}>
+          <TouchableOpacity 
+            style={{
+              width: '200%',
+              height: '200%',
+              borderRadius: TOP_RADIUS,
+            }}
+            onPress={() => {toggleExpand(); resetScrollView();}}
+          />
+        </View>
+        <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
+          {markers
+            .filter(marker => !selectedButton || marker.uri === selectedButton)
+            .map((marker, index) => (
+            <View style={styles.secondTap}>
+                
+            </View>
+          ))}
+        </ScrollView>
+      </Animated.View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    width: '90%',
+    marginBottom: SCREEN_HEIGHT * 0.08,
+  },
+  secondTap: {
+    height: SCREEN_HEIGHT * 0.145,
+    backgroundColor: '#3A5485',
+    marginTop: 15,
+    borderRadius: TOP_RADIUS,
+  },
+  tap: {
+    width: '13%',
+    height: SCREEN_HEIGHT * 0.01,
+    backgroundColor: '#3A5485',
+    marginTop: 10,
+    borderRadius: TOP_RADIUS,
+    alignItems: 'center',
+  },
+  bottomBar: {
+    width: '100%',
+    backgroundColor: '#213A6B',
+    position: 'absolute',
+    bottom: 0,
+    borderTopLeftRadius: BOT_RADIUS,
+    borderTopRightRadius: BOT_RADIUS,
+    alignItems: 'center',
+  },
   map: {
     ...StyleSheet.absoluteFillObject,
   },

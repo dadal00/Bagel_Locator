@@ -48,6 +48,7 @@ const App: React.FC = () => {
             backgroundColor: '#213A6B',
             flexDirection: 'row',
             height: Dimensions.get('window').height * 0.08,
+            borderTopWidth:0,
           },
           tabBarShowLabel: false,
         })}
