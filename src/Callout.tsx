@@ -47,14 +47,14 @@ const CustomCallout: React.FC<{
             </Text>
             <Text
               style={{
-                fontFamily: 'Sora-Bold',
+                fontFamily: 'Sora-Regular',
                 color: '#B1C9DB',
                 fontSize: 9.5,
               }}
             >{marker.address}</Text>
             <Text
               style={{
-                fontFamily: 'Sora-Bold',
+                fontFamily: 'Sora-Regular',
                 color: '#B1C9DB',
                 fontSize: 9.5,
               }}

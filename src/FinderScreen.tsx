@@ -1,16 +1,34 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
-import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, Animated} from 'react-native';
-import Map, {PROVIDER_GOOGLE, Marker, Camera} from 'react-native-maps';
+import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, Animated, TouchableOpacityComponent} from 'react-native';
+import Map, {PROVIDER_GOOGLE, Marker, Camera, BoundingBox} from 'react-native-maps';
 import MapView from "react-native-map-clustering";
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 import CustomCallout from "./Callout";
+import moment from 'moment';
+import KDBush from 'kdbush';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const MAX_ICON_SIZE = 35;
 const TOP_RADIUS = 13;
 const BOT_RADIUS = 22;
+
+type DayOfWeek = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
+const daysOfWeek = {
+  Sunday: "day_0",
+  Monday: "day_1",
+  Tuesday: "day_2",
+  Wednesday: "day_3",
+  Thursday: "day_4",
+  Friday: "day_5",
+  Saturday: "day_6",
+};
+const formatTime = (time: string) => moment(time, "HHmm").format("h:mm A");
+
+const date = new Date(); // or any date you want to use
+const day : DayOfWeek = moment(date).format('dddd') as DayOfWeek;
+const dayKey = daysOfWeek[day];
 
 export type MarkerData = {
   title: string;
@@ -31,11 +49,17 @@ export type MarkerData = {
   };
 };
 
+type LatLng = {
+  latitude: number;
+  longitude: number;
+};
+
 const MapScreen = () => {
   const [expanded, setExpanded] = useState(false);
   const animation = useRef(new Animated.Value(0)).current;
   const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
+  const [latLngArray, setLatLng] = useState<KDBush| null>(null);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [initialRegion, setInitialRegion] = useState({
     latitude: 37.78825,
@@ -43,11 +67,23 @@ const MapScreen = () => {
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
+  const [filteredIndexes, setFiltered] = useState<MarkerData[]>([]);
+  const [query, setQuery] = useState<BoundingBox>();
 
   const fetchData = async () => {
     try {
       const data = require('./stores.json');
       setMarkers(data);
+      const latLngData = data.map((marker: { latlng: { latitude: any; longitude: any; }; }) => ({
+        latitude: marker.latlng.latitude,
+        longitude: marker.latlng.longitude,
+      }));
+      const bush = new KDBush(latLngData.length)
+      for (const {latitude, longitude} of latLngData) {
+        bush?.add(latitude, longitude);
+      }
+      bush.finish();
+      setLatLng(bush);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -105,8 +141,8 @@ const MapScreen = () => {
     if (mapRef.current) {
       mapRef.current.animateToRegion({
         ...latlng,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.0121,
+        latitudeDelta: 0.001,
+        longitudeDelta: 0.001,
       });
     }
   };
@@ -158,7 +194,15 @@ const MapScreen = () => {
         region={initialRegion}
         showsUserLocation={true}
         clusterColor="#213A6B"
-        radius={SCREEN_WIDTH * 0.09}
+        radius={SCREEN_WIDTH * 0.06}
+        showsCompass={true}
+        edgePadding={{top: 100, left: 50, bottom: 50, right: 50}}
+        onRegionChangeComplete={async (val) => {
+          // console.log(await mapRef.current?.getMapBoundaries())
+          setQuery(await mapRef.current?.getMapBoundaries());
+          // const arr = latLngArray?.range((query?.southWest as LatLng)["latitude"], (query?.southWest as LatLng)["longitude"], (query?.northEast as LatLng)["latitude"], (query?.northEast as LatLng)["longitude"]);
+          
+        }}
       >
         {markers.map((marker, index) => {
           if (!selectedButton || marker.uri === selectedButton) {
@@ -181,28 +225,110 @@ const MapScreen = () => {
                 />
               </Marker>
             );
-          } else {
-            return null;
           }
         })}
       </MapView>
       <Animated.View style={[styles.bottomBar, { height: containerHeight }]}>
-        <View style={styles.tap}>
-          <TouchableOpacity 
+        <TouchableOpacity 
             style={{
-              width: '200%',
-              height: '200%',
+              marginTop: 0,
+              width: '30%',
+              height: SCREEN_HEIGHT * 0.05,
               borderRadius: TOP_RADIUS,
+              zIndex: 1,
+              marginBottom:-15,
+              alignItems:'center',
             }}
-            onPress={() => {toggleExpand(); resetScrollView();}}
-          />
-        </View>
+            onPress={() => {toggleExpand(); resetScrollView();
+              setFiltered((latLngArray?.range((query?.southWest as LatLng)["latitude"], (query?.southWest as LatLng)["longitude"], (query?.northEast as LatLng)["latitude"], (query?.northEast as LatLng)["longitude"]) as number[]).map(index => markers[index]));
+            }}
+        >
+          <View style={styles.tap}></View>
+        </TouchableOpacity>
         <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
-          {markers
+          {filteredIndexes
             .filter(marker => !selectedButton || marker.uri === selectedButton)
             .map((marker, index) => (
-            <View style={styles.secondTap}>
-                
+            <View style={styles.secondTap} key={index}>
+                <Image
+                  source={{
+                    uri: marker.uri + "_inactive",
+                  }}
+                  resizeMode="contain"
+                  style={{ 
+                    width: 60, 
+                    height: "100%",
+                    marginRight: 19,
+                  }}
+                />
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column', 
+                    // backgroundColor: 'white',
+                    justifyContent:'center',
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      fontFamily: 'Sora-Bold',
+                      color: "white",
+                    }}
+                  >
+                    {marker.title}
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: 'Sora-Regular',
+                      color: '#B1C9DB',
+                      fontSize: 10,
+                    }}
+                  >{marker.address}</Text>
+                  <Text
+                    style={{
+                      fontFamily: 'Sora-Regular',
+                      color: '#B1C9DB',
+                      fontSize: 10,
+                    }}
+                  >{marker.address_2}</Text>
+                  {dayKey in marker.opening_hours ? (
+                    <Text
+                      style={{
+                        marginTop: 3,
+                        fontFamily: 'Sora-SemiBold',
+                        color: 'white',
+                        fontSize: 9.5,
+                      }}
+                    >Hours: {formatTime((marker.opening_hours[dayKey]).open)} - {formatTime((marker.opening_hours[dayKey]).close)}</Text>
+                  ) : (
+                    <Text
+                      style={{
+                        marginTop: 3,
+                        fontFamily: 'Sora-SemiBold',
+                        color: 'white',
+                        fontSize: 9.5,
+                      }}
+                    >Closed Today</Text>
+                  )}
+                </View>
+                <TouchableOpacity
+                  style={{
+                    width:25,
+                    marginLeft: 15,
+                  }}
+                  onPress={() => onMarkerPress(marker.latlng)}
+                >
+                  <Image
+                    source={{
+                      uri: "arrow",
+                    }}
+                    resizeMode="contain"
+                    style={{ 
+                      width: 15, 
+                      height: "100%",
+                      marginLeft: 5,
+                    }}
+                  />
+                </TouchableOpacity>
             </View>
           ))}
         </ScrollView>
@@ -221,9 +347,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#3A5485',
     marginTop: 15,
     borderRadius: TOP_RADIUS,
+    flexDirection: "row",
+    resizeMode: "contain",
+    padding: 20,
+    justifyContent: 'center',
   },
   tap: {
-    width: '13%',
+    width: '40%',
     height: SCREEN_HEIGHT * 0.01,
     backgroundColor: '#3A5485',
     marginTop: 10,
@@ -240,10 +370,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
+    marginTop: SCREEN_HEIGHT * 0.1,
+    width: '100%',
+    height: SCREEN_HEIGHT * 0.8,
+    zIndex: 0,
   },
   fullView: {
     ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'green',
   },
   topBar: {
     width: '100%',
@@ -304,7 +438,4 @@ const styles = StyleSheet.create({
 });
    
 export default MapScreen;
-function markerOnPress(coord: any) {
-  throw new Error('Function not implemented.');
-}
 
