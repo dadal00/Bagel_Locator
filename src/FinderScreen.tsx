@@ -1,11 +1,12 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
-import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, Animated, TouchableOpacityComponent} from 'react-native';
-import Map, {PROVIDER_GOOGLE, Marker, Camera, BoundingBox} from 'react-native-maps';
+import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, TouchableOpacityComponent} from 'react-native';
+import Map, {PROVIDER_GOOGLE, Marker, BoundingBox} from 'react-native-maps';
 import MapView from "react-native-map-clustering";
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 import CustomCallout from "./Callout";
 import moment from 'moment';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import KDBush from 'kdbush';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -56,7 +57,7 @@ type LatLng = {
 
 const MapScreen = () => {
   const [expanded, setExpanded] = useState(false);
-  const animation = useRef(new Animated.Value(0)).current;
+  const expanse = useSharedValue(SCREEN_HEIGHT * 0.15);
   const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
   const [latLngArray, setLatLng] = useState<KDBush| null>(null);
@@ -89,19 +90,23 @@ const MapScreen = () => {
     }
   };
 
-  const toggleExpand = () => {
-    Animated.timing(animation, {
-      toValue: expanded ? 0 : 1,
-      duration: 300,
-      useNativeDriver: false, // useNativeDriver: false since we are animating layout properties
-    }).start();
-    setExpanded(!expanded);
-  };
-
-  const containerHeight = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['15%', '60%'], // Change these to the desired heights
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      height: withSpring(expanse.value, {
+        damping: 2, // Adjust the damping for a smoother animation
+        stiffness: 100, // Adjust stiffness for the spring animation
+        mass: 1, // Mass of the spring system
+        overshootClamping: true, // Prevent the spring from overshooting
+      }),
+      justifyContent: 'center',
+      alignItems: 'center',
+    };
   });
+
+  const toggleExpand = () => {
+    expanse.value = expanded ? SCREEN_HEIGHT * 0.15 : SCREEN_HEIGHT * 0.6; // Set the height value for collapsed and expanded states
+    setExpanded(!expanded); // Toggle the state
+  };
 
   const getUserLocation = async () => {
     const permission =
@@ -228,7 +233,7 @@ const MapScreen = () => {
           }
         })}
       </MapView>
-      <Animated.View style={[styles.bottomBar, { height: containerHeight }]}>
+      <Animated.View style={[styles.bottomBar, animatedStyle]}>
         <TouchableOpacity 
             style={{
               marginTop: 0,
