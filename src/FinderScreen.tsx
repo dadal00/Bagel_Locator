@@ -1,13 +1,13 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
 import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, TouchableOpacityComponent} from 'react-native';
-import Map, {PROVIDER_GOOGLE, Marker, BoundingBox} from 'react-native-maps';
+import Map, {PROVIDER_GOOGLE, Marker, BoundingBox, Camera} from 'react-native-maps';
 import MapView from "react-native-map-clustering";
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 import CustomCallout from "./Callout";
 import moment from 'moment';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import KDBush from 'kdbush';
+import SuperCluster from "supercluster";
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -60,7 +60,7 @@ const MapScreen = () => {
   const expanse = useSharedValue(SCREEN_HEIGHT * 0.15);
   const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
-  const [latLngArray, setLatLng] = useState<KDBush| null>(null);
+  // const [latLngArray, setLatLng] = useState<KDBush| null>(null);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [initialRegion, setInitialRegion] = useState({
     latitude: 37.78825,
@@ -70,6 +70,8 @@ const MapScreen = () => {
   });
   const [filteredIndexes, setFiltered] = useState<MarkerData[]>([]);
   const [query, setQuery] = useState<BoundingBox>();
+  const [cam, setCamera] = useState<Camera>();
+  const clusterRef = useRef<SuperCluster>(null);
 
   const fetchData = async () => {
     try {
@@ -79,12 +81,12 @@ const MapScreen = () => {
         latitude: marker.latlng.latitude,
         longitude: marker.latlng.longitude,
       }));
-      const bush = new KDBush(latLngData.length)
-      for (const {latitude, longitude} of latLngData) {
-        bush?.add(latitude, longitude);
-      }
-      bush.finish();
-      setLatLng(bush);
+      // const bush = new KDBush(latLngData.length)
+      // for (const {latitude, longitude} of latLngData) {
+      //   bush?.add(latitude, longitude);
+      // }
+      // bush.finish();
+      // setLatLng(bush);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -202,11 +204,13 @@ const MapScreen = () => {
         radius={SCREEN_WIDTH * 0.06}
         showsCompass={true}
         edgePadding={{top: 100, left: 50, bottom: 50, right: 50}}
+        superClusterRef={clusterRef}
         onRegionChangeComplete={async (val) => {
-          // console.log(await mapRef.current?.getMapBoundaries())
           setQuery(await mapRef.current?.getMapBoundaries());
-          // const arr = latLngArray?.range((query?.southWest as LatLng)["latitude"], (query?.southWest as LatLng)["longitude"], (query?.northEast as LatLng)["latitude"], (query?.northEast as LatLng)["longitude"]);
-          
+          setCamera(await mapRef.current?.getCamera());
+          // console.log("\n")
+          // console.log(clusterRef?.current?.getClusters([query?.southWest.longitude as number, query?.southWest.latitude as number, query?.northEast.longitude as number, query?.northEast.latitude as number], (await mapRef.current?.getCamera())?.zoom as number))
+          // console.log(markers[124])
         }}
       >
         {markers.map((marker, index) => {
@@ -245,14 +249,14 @@ const MapScreen = () => {
               alignItems:'center',
             }}
             onPress={() => {toggleExpand(); resetScrollView();
-              setFiltered((latLngArray?.range((query?.southWest as LatLng)["latitude"], (query?.southWest as LatLng)["longitude"], (query?.northEast as LatLng)["latitude"], (query?.northEast as LatLng)["longitude"]) as number[]).map(index => markers[index]));
+              setFiltered((clusterRef?.current?.getClusters([query?.southWest.longitude as number, query?.southWest.latitude as number, query?.northEast.longitude as number, query?.northEast.latitude as number], cam?.zoom as number)?.filter(item => !item.properties.cluster).map(item => item.properties.index) as number[]).map(index => markers[index]));
             }}
         >
           <View style={styles.tap}></View>
         </TouchableOpacity>
         <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
           {filteredIndexes
-            .filter(marker => !selectedButton || marker.uri === selectedButton)
+            .filter((marker => !selectedButton || marker.uri === selectedButton) )
             .map((marker, index) => (
             <View style={styles.secondTap} key={index}>
                 <Image
