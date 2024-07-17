@@ -7,6 +7,7 @@ import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 import CustomCallout from "./Callout";
 import moment from 'moment';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import Flatbush from 'flatbush';
 import SuperCluster from "supercluster";
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -50,17 +51,12 @@ export type MarkerData = {
   };
 };
 
-type LatLng = {
-  latitude: number;
-  longitude: number;
-};
-
 const MapScreen = () => {
   const [expanded, setExpanded] = useState(false);
   const expanse = useSharedValue(SCREEN_HEIGHT * 0.15);
   const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
-  // const [latLngArray, setLatLng] = useState<KDBush| null>(null);
+  const [latLngArray, setLatLng] = useState<Flatbush| null>(null);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [initialRegion, setInitialRegion] = useState({
     latitude: 37.78825,
@@ -72,21 +68,20 @@ const MapScreen = () => {
   const [query, setQuery] = useState<BoundingBox>();
   const [cam, setCamera] = useState<Camera>();
   const clusterRef = useRef<SuperCluster>(null);
+  const [access, setAccess] = useState<number>(0);
 
   const fetchData = async () => {
     try {
       const data = require('./stores.json');
+      const a: MarkerData[] = data as MarkerData[];
       setMarkers(data);
-      const latLngData = data.map((marker: { latlng: { latitude: any; longitude: any; }; }) => ({
-        latitude: marker.latlng.latitude,
-        longitude: marker.latlng.longitude,
-      }));
-      // const bush = new KDBush(latLngData.length)
-      // for (const {latitude, longitude} of latLngData) {
-      //   bush?.add(latitude, longitude);
-      // }
-      // bush.finish();
-      // setLatLng(bush);
+      const bush = new Flatbush(a.length);
+      a.forEach(marker =>{
+        // console.log("0");
+        bush.add(marker.latlng.longitude, marker.latlng.latitude);
+      });
+      bush.finish();
+      setLatLng(bush);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -162,7 +157,7 @@ const MapScreen = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchData();
     getUserLocation();
   }, []);
@@ -174,21 +169,54 @@ const MapScreen = () => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity 
             style={[selectedButton === 'bagel' ? styles.selectedButton : null, styles.button]}
-            onPress={() => {setSelectedButton(selectedButton === 'bagel' ? null : 'bagel'); resetScrollView();}}
+            onPress={() => {setSelectedButton(selectedButton === 'bagel' ? null : 'bagel'); resetScrollView();
+              if (!(selectedButton === 'bagel')) {
+                for (const index of latLngArray?.neighbors(cam?.center.longitude as number, cam?.center.latitude as number, markers.length) as number[]) {
+                  if ('bagel' === markers[index as number].uri){
+                    setAccess(index as number);
+                    break;
+                  }
+                }
+              } else {
+                setAccess(latLngArray?.neighbors(cam?.center.longitude as number, cam?.center.latitude as number, 1)[0] as number);
+              }
+            }}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'bagel' ? 'bagel' : 'bagel_inactive'}} />
             <Text style={selectedButton === 'bagel' ? styles.selectedButtonText : styles.buttonText}>  IN-STORE</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.button, selectedButton === 'grocery' ? styles.selectedButton : null]} 
-            onPress={() => {setSelectedButton(selectedButton === 'grocery' ? null : 'grocery'); resetScrollView();}}
+            onPress={() => {setSelectedButton(selectedButton === 'grocery' ? null : 'grocery'); resetScrollView();
+              // if (!(selectedButton === 'grocery')) {
+              //   for (const index of geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, markers.length)) {
+              //     if ('grocery' === markers[index as number].uri){
+              //       setAccess(index as number);
+              //       break;
+              //     }
+              //   }
+              // } else {
+              //   setAccess(geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, 1)[0] as number);
+              // }
+            }}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'grocery' ? 'grocery' : 'grocery_inactive'}} />
             <Text style={selectedButton === 'grocery' ? styles.selectedButtonText : styles.buttonText}>  GROCERY</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.button, selectedButton === 'cafe' ? styles.selectedButton : null]} 
-            onPress={() => {setSelectedButton(selectedButton === 'cafe' ? null : 'cafe'); resetScrollView();}}
+            onPress={() => {setSelectedButton(selectedButton === 'cafe' ? null : 'cafe'); resetScrollView();
+              // if (!(selectedButton === 'cafe')) {
+              //   for (const index of geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, markers.length)) {
+              //     if ('cafe' === markers[index as number].uri){
+              //       setAccess(index as number);
+              //       break;
+              //     }
+              //   }
+              // } else {
+              //   setAccess(geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, 1)[0] as number);
+              // }
+            }}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'cafe' ? 'cafe_active' : 'cafe_inactive'}} />
             <Text style={selectedButton === 'cafe' ? styles.selectedButtonText : styles.buttonText}>  CAFE</Text>
@@ -208,9 +236,6 @@ const MapScreen = () => {
         onRegionChangeComplete={async (val) => {
           setQuery(await mapRef.current?.getMapBoundaries());
           setCamera(await mapRef.current?.getCamera());
-          // console.log("\n")
-          // console.log(clusterRef?.current?.getClusters([query?.southWest.longitude as number, query?.southWest.latitude as number, query?.northEast.longitude as number, query?.northEast.latitude as number], (await mapRef.current?.getCamera())?.zoom as number))
-          // console.log(markers[124])
         }}
       >
         {markers.map((marker, index) => {
@@ -223,7 +248,7 @@ const MapScreen = () => {
                 tracksViewChanges={false}
                 onPress={() => onMarkerPress(marker.latlng)}
               >
-                <CustomCallout marker={marker}></CustomCallout>
+                {/* <CustomCallout marker={marker}></CustomCallout> */}
                 <Image
                   source={{ uri: marker.uri }}
                   style={{
@@ -250,97 +275,192 @@ const MapScreen = () => {
             }}
             onPress={() => {toggleExpand(); resetScrollView();
               setFiltered((clusterRef?.current?.getClusters([query?.southWest.longitude as number, query?.southWest.latitude as number, query?.northEast.longitude as number, query?.northEast.latitude as number], cam?.zoom as number)?.filter(item => !item.properties.cluster).map(item => item.properties.index) as number[]).map(index => markers[index]));
+              for (const index of latLngArray?.neighbors(cam?.center.longitude as number, cam?.center.latitude as number, markers.length) as number[]) {
+                if (!selectedButton) {
+                  setAccess(index as number);
+                  break;
+                } else if (selectedButton === markers[index as number].uri){
+                  setAccess(index as number);
+                  break;
+                }
+              }
             }}
         >
           <View style={styles.tap}></View>
         </TouchableOpacity>
-        <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
-          {filteredIndexes
-            .filter((marker => !selectedButton || marker.uri === selectedButton) )
-            .map((marker, index) => (
-            <View style={styles.secondTap} key={index}>
+        {filteredIndexes.length == 0 && markers.length != 0 ? (
+          <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
+            <View style={styles.secondTap}>
+              <Image
+                source={{
+                  uri: markers[access as number].uri + "_inactive",
+                }}
+                resizeMode="contain"
+                style={{ 
+                  width: 60, 
+                  height: "100%",
+                  marginRight: 19,
+                }}
+              />
+              <View style={{
+                  flex: 1,
+                  flexDirection: 'column', 
+                  // backgroundColor: 'white',
+                  justifyContent:'center',
+                }}>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    fontFamily: 'Sora-Bold',
+                    color: "white",
+                  }}
+                >
+                  {markers[access as number].title}
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: 'Sora-Regular',
+                    color: '#B1C9DB',
+                    fontSize: 10,
+                  }}
+                >{markers[access as number].address}</Text>
+                <Text
+                  style={{
+                    fontFamily: 'Sora-Regular',
+                    color: '#B1C9DB',
+                    fontSize: 10,
+                  }}
+                >{markers[access as number].address_2}</Text>
+                {dayKey in markers[access as number].opening_hours ? (
+                  <Text
+                    style={{
+                      marginTop: 3,
+                      fontFamily: 'Sora-SemiBold',
+                      color: 'white',
+                      fontSize: 9.5,
+                    }}
+                  >Hours: {formatTime((markers[access as number].opening_hours[dayKey]).open)} - {formatTime((markers[access as number].opening_hours[dayKey]).close)}</Text>
+                ) : (
+                  <Text
+                    style={{
+                      marginTop: 3,
+                      fontFamily: 'Sora-SemiBold',
+                      color: 'white',
+                      fontSize: 9.5,
+                    }}
+                  >Closed Today</Text>
+                )}
+              </View>
+              <TouchableOpacity
+                style={{
+                  width:25,
+                  marginLeft: 15,
+                }}
+                onPress={() => onMarkerPress(markers[access as number].latlng)}
+              >
                 <Image
                   source={{
-                    uri: marker.uri + "_inactive",
+                    uri: "arrow",
                   }}
                   resizeMode="contain"
                   style={{ 
-                    width: 60, 
+                    width: 15, 
                     height: "100%",
-                    marginRight: 19,
+                    marginLeft: 5,
                   }}
                 />
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column', 
-                    // backgroundColor: 'white',
-                    justifyContent:'center',
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: 13,
-                      fontFamily: 'Sora-Bold',
-                      color: "white",
-                    }}
-                  >
-                    {marker.title}
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: 'Sora-Regular',
-                      color: '#B1C9DB',
-                      fontSize: 10,
-                    }}
-                  >{marker.address}</Text>
-                  <Text
-                    style={{
-                      fontFamily: 'Sora-Regular',
-                      color: '#B1C9DB',
-                      fontSize: 10,
-                    }}
-                  >{marker.address_2}</Text>
-                  {dayKey in marker.opening_hours ? (
-                    <Text
-                      style={{
-                        marginTop: 3,
-                        fontFamily: 'Sora-SemiBold',
-                        color: 'white',
-                        fontSize: 9.5,
-                      }}
-                    >Hours: {formatTime((marker.opening_hours[dayKey]).open)} - {formatTime((marker.opening_hours[dayKey]).close)}</Text>
-                  ) : (
-                    <Text
-                      style={{
-                        marginTop: 3,
-                        fontFamily: 'Sora-SemiBold',
-                        color: 'white',
-                        fontSize: 9.5,
-                      }}
-                    >Closed Today</Text>
-                  )}
-                </View>
-                <TouchableOpacity
-                  style={{
-                    width:25,
-                    marginLeft: 15,
-                  }}
-                  onPress={() => onMarkerPress(marker.latlng)}
-                >
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        ) : (
+          <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
+            {filteredIndexes
+              .filter((marker => !selectedButton || marker.uri === selectedButton) )
+              .map((marker, index) => (
+              <View style={styles.secondTap} key={index}>
                   <Image
                     source={{
-                      uri: "arrow",
+                      uri: marker.uri + "_inactive",
                     }}
                     resizeMode="contain"
                     style={{ 
-                      width: 15, 
+                      width: 60, 
                       height: "100%",
-                      marginLeft: 5,
+                      marginRight: 19,
                     }}
                   />
-                </TouchableOpacity>
-            </View>
-          ))}
-        </ScrollView>
+                  <View style={{
+                      flex: 1,
+                      flexDirection: 'column', 
+                      // backgroundColor: 'white',
+                      justifyContent:'center',
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 13,
+                        fontFamily: 'Sora-Bold',
+                        color: "white",
+                      }}
+                    >
+                      {marker.title}
+                    </Text>
+                    <Text
+                      style={{
+                        fontFamily: 'Sora-Regular',
+                        color: '#B1C9DB',
+                        fontSize: 10,
+                      }}
+                    >{marker.address}</Text>
+                    <Text
+                      style={{
+                        fontFamily: 'Sora-Regular',
+                        color: '#B1C9DB',
+                        fontSize: 10,
+                      }}
+                    >{marker.address_2}</Text>
+                    {dayKey in marker.opening_hours ? (
+                      <Text
+                        style={{
+                          marginTop: 3,
+                          fontFamily: 'Sora-SemiBold',
+                          color: 'white',
+                          fontSize: 9.5,
+                        }}
+                      >Hours: {formatTime((marker.opening_hours[dayKey]).open)} - {formatTime((marker.opening_hours[dayKey]).close)}</Text>
+                    ) : (
+                      <Text
+                        style={{
+                          marginTop: 3,
+                          fontFamily: 'Sora-SemiBold',
+                          color: 'white',
+                          fontSize: 9.5,
+                        }}
+                      >Closed Today</Text>
+                    )}
+                  </View>
+                  <TouchableOpacity
+                    style={{
+                      width:25,
+                      marginLeft: 15,
+                    }}
+                    onPress={() => onMarkerPress(marker.latlng)}
+                  >
+                    <Image
+                      source={{
+                        uri: "arrow",
+                      }}
+                      resizeMode="contain"
+                      style={{ 
+                        width: 15, 
+                        height: "100%",
+                        marginLeft: 5,
+                      }}
+                    />
+                  </TouchableOpacity>
+              </View>
+            ))}
+          </ScrollView>
+        )}
       </Animated.View>
     </View>
   );
