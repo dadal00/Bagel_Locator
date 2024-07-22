@@ -26,15 +26,19 @@ const CustomCallout: React.FC<{
 }> = ({ marker }) => {
   return (
     <Callout tooltip>
-      <View>
+      {/* <View> */}
         <View style={styles.container}>
-          <Image
-            source={{
-              uri: marker.uri + "_inactive",
-            }}
-            resizeMode="contain"
-            style={{ width: 45, height: "100%", marginRight:9}}
-          ></Image>
+          {/* <Text> */}
+            <Image
+              source={{ 
+                uri: marker.uri + "_inactive",
+              }}
+              resizeMode="contain"
+              style={{ width: 45, height: "100%", marginRight:9}}
+              // onError={(error) => console.log("Image loading error: ", error.nativeEvent.error)}
+            />
+          {/* </Text> */}
+          
           <View style={{flexShrink: 1, flexDirection: 'column',}}>
             <Text
               style={{
@@ -82,7 +86,7 @@ const CustomCallout: React.FC<{
           </View>
         </View>
         <View style={styles.triangle}></View>
-      </View>
+      {/* </View> */}
     </Callout>
   );
 };
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 10,
     borderBottomWidth: 0,
     borderLeftWidth: 10,
-    borderTopColor: "black",
+    borderTopColor: '#213A6B',
     borderRightColor: "transparent",
     borderBottomColor: "transparent",
     borderLeftColor: "transparent",

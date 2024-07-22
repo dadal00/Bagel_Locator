@@ -1,14 +1,15 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
 import {StyleSheet, View, Text, Dimensions, ScrollView, Image, TouchableOpacity, Alert, Platform, TouchableOpacityComponent} from 'react-native';
-import Map, {PROVIDER_GOOGLE, Marker, BoundingBox, Camera} from 'react-native-maps';
+import Map, {PROVIDER_GOOGLE, Marker, BoundingBox, Camera, Callout} from 'react-native-maps';
 import MapView from "react-native-map-clustering";
 import { PERMISSIONS, check, RESULTS, request } from 'react-native-permissions';
 import CustomCallout from "./Callout";
 import moment from 'moment';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import Flatbush from 'flatbush';
+// import KDBush from 'kdbush';
 import SuperCluster from "supercluster";
+// import * as geokdbush from 'geokdbush';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -56,7 +57,8 @@ const MapScreen = () => {
   const expanse = useSharedValue(SCREEN_HEIGHT * 0.15);
   const mapRef = useRef<Map>(null);
   const [markers, setMarkers] = useState<MarkerData[]>([]);
-  const [latLngArray, setLatLng] = useState<Flatbush| null>(null);
+  // const [markers2, setMarkers2] = useState<MarkerData[]>([]);
+  // const [latLngArray, setLatLng] = useState<KDBush| null>(null);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [initialRegion, setInitialRegion] = useState({
     latitude: 37.78825,
@@ -68,20 +70,21 @@ const MapScreen = () => {
   const [query, setQuery] = useState<BoundingBox>();
   const [cam, setCamera] = useState<Camera>();
   const clusterRef = useRef<SuperCluster>(null);
-  const [access, setAccess] = useState<number>(0);
+  const [access] = useState<number>(0);
 
   const fetchData = async () => {
     try {
       const data = require('./stores.json');
-      const a: MarkerData[] = data as MarkerData[];
       setMarkers(data);
-      const bush = new Flatbush(a.length);
-      a.forEach(marker =>{
-        // console.log("0");
-        bush.add(marker.latlng.longitude, marker.latlng.latitude);
-      });
-      bush.finish();
-      setLatLng(bush);
+      // const a = (data as MarkerData[]).map(item => ({ ...item }));
+      // setMarkers2(a);
+      // const bush = new KDBush(a.length);
+      // a.forEach(marker =>{
+      //   // console.log("0");
+      //   bush.add(marker.latlng.longitude, marker.latlng.latitude);
+      // });
+      // bush.finish();
+      // setLatLng(bush);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -170,16 +173,18 @@ const MapScreen = () => {
           <TouchableOpacity 
             style={[selectedButton === 'bagel' ? styles.selectedButton : null, styles.button]}
             onPress={() => {setSelectedButton(selectedButton === 'bagel' ? null : 'bagel'); resetScrollView();
-              if (!(selectedButton === 'bagel')) {
-                for (const index of latLngArray?.neighbors(cam?.center.longitude as number, cam?.center.latitude as number, markers.length) as number[]) {
-                  if ('bagel' === markers[index as number].uri){
-                    setAccess(index as number);
-                    break;
-                  }
-                }
-              } else {
-                setAccess(latLngArray?.neighbors(cam?.center.longitude as number, cam?.center.latitude as number, 1)[0] as number);
-              }
+              // if (!(selectedButton === 'bagel')) {
+              //   for (const index of geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, markers2.length)) {
+              //     if ('bagel' === markers2[index as number].uri){
+              //       // setAccess(index as number);
+              //       break;
+              //     }
+              //   }
+              // } else {
+              //   // setAccess(geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, 1)[0] as number);
+              // }
+              // console.log(filteredIndexes);
+              // console.log(access);
             }}
           >
             <Image style={styles.icon} source={{uri:selectedButton === 'bagel' ? 'bagel' : 'bagel_inactive'}} />
@@ -229,7 +234,7 @@ const MapScreen = () => {
         region={initialRegion}
         showsUserLocation={true}
         clusterColor="#213A6B"
-        radius={SCREEN_WIDTH * 0.06}
+        radius={SCREEN_WIDTH * 0.08}
         showsCompass={true}
         edgePadding={{top: 100, left: 50, bottom: 50, right: 50}}
         superClusterRef={clusterRef}
@@ -248,7 +253,7 @@ const MapScreen = () => {
                 tracksViewChanges={false}
                 onPress={() => onMarkerPress(marker.latlng)}
               >
-                {/* <CustomCallout marker={marker}></CustomCallout> */}
+                
                 <Image
                   source={{ uri: marker.uri }}
                   style={{
@@ -257,6 +262,7 @@ const MapScreen = () => {
                     resizeMode: 'contain',
                   }}
                 />
+                <CustomCallout marker={marker}/>
               </Marker>
             );
           }
@@ -275,25 +281,26 @@ const MapScreen = () => {
             }}
             onPress={() => {toggleExpand(); resetScrollView();
               setFiltered((clusterRef?.current?.getClusters([query?.southWest.longitude as number, query?.southWest.latitude as number, query?.northEast.longitude as number, query?.northEast.latitude as number], cam?.zoom as number)?.filter(item => !item.properties.cluster).map(item => item.properties.index) as number[]).map(index => markers[index]));
-              for (const index of latLngArray?.neighbors(cam?.center.longitude as number, cam?.center.latitude as number, markers.length) as number[]) {
-                if (!selectedButton) {
-                  setAccess(index as number);
-                  break;
-                } else if (selectedButton === markers[index as number].uri){
-                  setAccess(index as number);
-                  break;
-                }
-              }
+              // for (const index of geokdbush.around(latLngArray, cam?.center.longitude as number, cam?.center.latitude as number, markers2.length)) {
+              //   if (!selectedButton) {
+              //     // setAccess(index as number);
+              //     break;
+              //   } else if (selectedButton === markers2[index as number].uri){
+              //     // setAccess(index as number);
+              //     break;
+              //   }
+              // }
+              // console.log(filteredIndexes);
             }}
         >
           <View style={styles.tap}></View>
         </TouchableOpacity>
-        {filteredIndexes.length == 0 && markers.length != 0 ? (
+        {/* {filteredIndexes.length == 0 && markers.length != 0 ? (
           <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
             <View style={styles.secondTap}>
               <Image
                 source={{
-                  uri: markers[access as number].uri + "_inactive",
+                  uri: markers2[access as number].uri + "_inactive",
                 }}
                 resizeMode="contain"
                 style={{ 
@@ -315,7 +322,7 @@ const MapScreen = () => {
                     color: "white",
                   }}
                 >
-                  {markers[access as number].title}
+                  {markers2[access as number].title}
                 </Text>
                 <Text
                   style={{
@@ -323,15 +330,15 @@ const MapScreen = () => {
                     color: '#B1C9DB',
                     fontSize: 10,
                   }}
-                >{markers[access as number].address}</Text>
+                >{markers2[access as number].address}</Text>
                 <Text
                   style={{
                     fontFamily: 'Sora-Regular',
                     color: '#B1C9DB',
                     fontSize: 10,
                   }}
-                >{markers[access as number].address_2}</Text>
-                {dayKey in markers[access as number].opening_hours ? (
+                >{markers2[access as number].address_2}</Text>
+                {dayKey in markers2[access as number].opening_hours ? (
                   <Text
                     style={{
                       marginTop: 3,
@@ -339,7 +346,7 @@ const MapScreen = () => {
                       color: 'white',
                       fontSize: 9.5,
                     }}
-                  >Hours: {formatTime((markers[access as number].opening_hours[dayKey]).open)} - {formatTime((markers[access as number].opening_hours[dayKey]).close)}</Text>
+                  >Hours: {formatTime((markers2[access as number].opening_hours[dayKey]).open)} - {formatTime((markers2[access as number].opening_hours[dayKey]).close)}</Text>
                 ) : (
                   <Text
                     style={{
@@ -372,7 +379,7 @@ const MapScreen = () => {
               </TouchableOpacity>
             </View>
           </ScrollView>
-        ) : (
+        ) : ( */}
           <ScrollView style={styles.scrollContainer} ref={scrollViewRef}>
             {filteredIndexes
               .filter((marker => !selectedButton || marker.uri === selectedButton) )
@@ -460,7 +467,7 @@ const MapScreen = () => {
               </View>
             ))}
           </ScrollView>
-        )}
+        {/* )} */}
       </Animated.View>
     </View>
   );
