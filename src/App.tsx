@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
-const MAX_ICON_SIZE = 30;
+const MAX_ICON_SIZE = SCREEN_WIDTH * 0.08;
 
 const App: React.FC = () => {
   return (
