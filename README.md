@@ -1,3 +1,7 @@
+
+![ezgif-2da1212537a8c1](https://github.com/user-attachments/assets/b8e7619c-d4b1-4a09-92e2-f0f38263800f)
+
+
 ## Some libraries you will need.
 
 1. node.js and npm, can install these through homebrew (package manager) or https://nodejs.org/en
